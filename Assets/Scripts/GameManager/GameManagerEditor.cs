@@ -1,19 +1,15 @@
 using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
-using Ebac.StateMachine;
 
-[CustomEditor(typeof(FSMExample))]
-public class StateMachineEditor : Editor
+[CustomEditor(typeof(GameManager))]
+public class GameManagerEditor : Editor
 {
     public bool showFoldout;
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
-        FSMExample fsm = (FSMExample)target;
+        GameManager fsm = (GameManager)target;
 
         EditorGUILayout.LabelField("State Machine");
 
@@ -26,11 +22,11 @@ public class StateMachineEditor : Editor
 
         if (showFoldout)
         {
-            if(fsm.stateMachine.dicionaryStates != null)
+            if (fsm.stateMachine.dicionaryStates != null)
             {
                 var keys = fsm.stateMachine.dicionaryStates.Keys.ToArray();
                 var values = fsm.stateMachine.dicionaryStates.Values.ToArray();
-                    
+
                 for (int i = 0; i < keys.Length; i++)
                 {
                     EditorGUILayout.LabelField(string.Format("{0} :: {1}", keys[i], values[i]));
