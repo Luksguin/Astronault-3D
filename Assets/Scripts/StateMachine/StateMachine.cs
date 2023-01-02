@@ -2,38 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateMachine : MonoBehaviour
+public class Test
 {
-    public enum States
+    public enum EnumTeste
     {
-        IDLE
+        NONE
     }
 
+    public void Aa()
+    {
+        StateMachine<EnumTeste> stateMachine = new StateMachine<EnumTeste>();
+
+        stateMachine.Register(Test.EnumTeste.NONE, new StateBase());
+    }
+}
+
+public class StateMachine<T>  where T : System.Enum
+{
+    public Dictionary<T, StateBase> dicionaryStates;
     private StateBase _currentstate;
-    public static StateMachine Instance;
 
-    public Dictionary<States, StateBase> dicionaryStates;
-
-    private void Awake()
+    public StateBase CurrentState
     {
-        Instance = this;
-
-        dicionaryStates = new Dictionary<States, StateBase>();
-        dicionaryStates.Add(States.IDLE, new StateBase());
-
-        SwitchStates(States.IDLE);
+        get { return _currentstate; }
     }
 
-    public void SwitchStates(States state)
+    public void Init()
+    {
+        dicionaryStates = new Dictionary<T, StateBase>();
+    }
+
+    public void Register(T typeEnum, StateBase state)
+    {
+        dicionaryStates.Add(typeEnum, state);
+    }
+
+    public void SwitchStates(T state)
     {
         if (_currentstate != null) _currentstate.OnStateExit();
 
         _currentstate = dicionaryStates[state];
 
-        if (_currentstate != null) _currentstate.OnStateEnter();
+        _currentstate.OnStateEnter();
     }
 
-    private void Update()
+    public void Update()
     {
         if (_currentstate != null) _currentstate.OnStateStay();
     }
