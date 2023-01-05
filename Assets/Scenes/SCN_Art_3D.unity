@@ -12637,6 +12637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 1934283280}
   speed: 10
+  spinSpeed: 100
 --- !u!1001 &1942738931
 PrefabInstance:
   m_ObjectHideFlags: 0
