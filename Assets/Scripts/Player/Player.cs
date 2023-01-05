@@ -11,13 +11,33 @@ public class Player : MonoBehaviour
 
     private float _vGravity;
 
-    void Update()
-    {
-        transform.Rotate(0, Input.GetAxis("Horizontal") * spinSpeed * Time.deltaTime, 0);
-        var verticalSpeed = transform.forward * Input.GetAxis("Vertical") * speed;
+    [Header("Animations")]
+    public Animator playerAnimator;
+    public string runBool;
 
+    private void Moviments()
+    {
+        var InputAxisVertical = Input.GetAxis("Vertical");
+        var verticalSpeed = transform.forward * InputAxisVertical * speed;
         verticalSpeed.y -= gravity;
 
         characterController.Move(verticalSpeed * Time.deltaTime);
+        transform.Rotate(0, Input.GetAxis("Horizontal") * spinSpeed * Time.deltaTime, 0);
+
+        Debug.Log(((int)InputAxisVertical));
+
+        if (InputAxisVertical != 0)
+        {
+            playerAnimator.SetBool(runBool, true);
+        }
+        else 
+        {
+            playerAnimator.SetBool(runBool, false);
+        }
+    }
+
+    void Update()
+    {
+        Moviments();
     }
 }
