@@ -12598,7 +12598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934283278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 404.27, y: -7.08, z: 54.97}
+  m_LocalPosition: {x: 404.27, y: 1.92, z: 54.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1677773663}
@@ -12638,6 +12638,7 @@ MonoBehaviour:
   characterController: {fileID: 1934283280}
   speed: 10
   spinSpeed: 100
+  gravity: 9.8
 --- !u!1001 &1942738931
 PrefabInstance:
   m_ObjectHideFlags: 0
