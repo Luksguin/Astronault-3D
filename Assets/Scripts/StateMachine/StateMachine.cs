@@ -4,21 +4,6 @@ using UnityEngine;
 
 namespace Ebac.StateMachine
 {
-    public class Test
-    {
-        public enum EnumTeste
-        {
-            NONE
-        }
-
-        public void Aa()
-        {
-            StateMachine<EnumTeste> stateMachine = new StateMachine<EnumTeste>();
-
-            stateMachine.Register(Test.EnumTeste.NONE, new StateBase());
-        }
-    }
-
     public class StateMachine<T> where T : System.Enum
     {
         public Dictionary<T, StateBase> dicionaryStates;
