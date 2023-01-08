@@ -18,6 +18,7 @@ public class ReloadGun : GunBase
         {
             Shoot();
             _currentAmount++;
+            Debug.Log(_currentAmount);
             CheckReload();
             yield return new WaitForSeconds(timeBetweenShoot);
         }

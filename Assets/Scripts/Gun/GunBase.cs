@@ -19,7 +19,7 @@ public class GunBase : MonoBehaviour
         }
     }
 
-    public void Shoot()
+    public virtual void Shoot()
     {
         var projectille = Instantiate(projectillePrefab);
         projectille.transform.position = positionShoot.transform.position;
