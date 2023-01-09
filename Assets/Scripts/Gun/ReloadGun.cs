@@ -1,14 +1,22 @@
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ReloadGun : GunBase
 {
+    public List<UIGun> uIGuns;
+
     public int maxAmount;
     public float timeOfReload;
 
     private int _currentAmount;
     private bool _isReloading = false;
+
+    private void Awake()
+    {
+        GetAllUIs();
+    }
 
     protected override IEnumerator StartShoot()
     {
@@ -18,11 +26,11 @@ public class ReloadGun : GunBase
         {
             Shoot();
             _currentAmount++;
-            Debug.Log(_currentAmount);
+            //Debug.Log(_currentAmount);
             CheckReload();
+            UpdateUI();
             yield return new WaitForSeconds(timeBetweenShoot);
         }
-
     }
 
     public void CheckReload()
@@ -42,14 +50,25 @@ public class ReloadGun : GunBase
 
     IEnumerator Reload()
     {
-        var time = 0f;
+        float time = 0f;
         while (time <= timeOfReload)
         {
             time += Time.deltaTime;
+            uIGuns.ForEach(i => i.UpdateImage(time/timeOfReload));
             yield return new WaitForEndOfFrame();
         }
 
         _isReloading = false;
         _currentAmount = 0;
+    }
+
+    public void UpdateUI()
+    {
+        uIGuns.ForEach(i => i.UpdateValue(maxAmount, _currentAmount));
+    }
+
+    public void GetAllUIs()
+    {
+        uIGuns = GameObject.FindObjectsOfType<UIGun>().ToList();
     }
 }

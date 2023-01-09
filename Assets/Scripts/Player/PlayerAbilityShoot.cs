@@ -23,7 +23,7 @@ public class PlayerAbilityShoot : PlayerAbilityBase
     {
         _currentGun = Instantiate(gunBase, gunPosition);
 
-        _currentGun.transform.position = _currentGun.transform.eulerAngles = Vector3.zero;
+        _currentGun.transform.localPosition = _currentGun.transform.eulerAngles = Vector3.zero;
     }
 
     public void InitShoot()

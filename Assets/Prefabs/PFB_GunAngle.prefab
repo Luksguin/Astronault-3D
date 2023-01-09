@@ -46,8 +46,9 @@ MonoBehaviour:
   projectillePrefab: {fileID: 4909213898753135409, guid: 65a3d93421d31b547a92f229ea35c3bb, type: 3}
   positionShoot: {fileID: 1234299939580344532}
   timeBetweenShoot: 1
+  uIGuns: []
   maxAmount: 4
-  timeOfReload: 3
+  timeOfReload: 10
   shootAmount: 5
   angle: 20
   speed: 10
