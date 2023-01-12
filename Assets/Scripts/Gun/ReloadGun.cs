@@ -11,6 +11,7 @@ public class ReloadGun : GunBase
     public float timeOfReload;
 
     private int _currentAmount;
+    private float _shootTime;
     private bool _isReloading = false;
 
     private void Awake()
@@ -22,11 +23,18 @@ public class ReloadGun : GunBase
     {
         if (_isReloading == true) yield break;
 
+        float timeSinceLastTime = Time.time - _shootTime;
+        if (timeSinceLastTime < timeBetweenShoot)
+        {
+            yield return new WaitForSeconds(timeBetweenShoot - timeSinceLastTime);
+        }
+
         while (true)
         {
             Shoot();
             _currentAmount++;
             CheckReload();
+            _shootTime = Time.time;
             UpdateUI();
             yield return new WaitForSeconds(timeBetweenShoot);
         }
