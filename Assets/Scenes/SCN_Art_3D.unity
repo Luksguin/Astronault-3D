@@ -2168,6 +2168,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6281779893053664936, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
   m_PrefabInstance: {fileID: 1244286686}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &503195194 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5198380618090564724, guid: 8bec79f815163ae43b0faf61a3b8baca, type: 3}
+  m_PrefabInstance: {fileID: 1244286686}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &509987920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5655,7 +5660,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179709625}
-  m_LocalRotation: {x: 0.059153266, y: 0.07518616, z: -0.0044680443, w: 0.99540347}
+  m_LocalRotation: {x: 0.0591533, y: 0.07518616, z: -0.004468047, w: 0.99540347}
   m_LocalPosition: {x: 418.6, y: 7.5, z: 41.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7274,7 +7279,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.059153266, y: 0.07518616, z: -0.0044680443, w: 0.99540347}
+  m_LocalRotation: {x: 0.0591533, y: 0.07518616, z: -0.004468047, w: 0.99540347}
   m_LocalPosition: {x: 418.6, y: 7.5, z: 41.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -9590,8 +9595,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1877020135}
-  - component: {fileID: 1877020134}
   - component: {fileID: 1877020136}
+  - component: {fileID: 1877020134}
+  - component: {fileID: 1877020137}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -9611,9 +9617,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34097f08beddbb44caac7c2a777844d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAnimationBase: {fileID: 1877020137}
   life: 10
-  duration: 0.5
-  ease: 27
+  durationStartAnimation: 0.5
+  easeStartAnimation: 27
 --- !u!4 &1877020135
 Transform:
   m_ObjectHideFlags: 0
@@ -9642,6 +9649,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.814789, y: 7.7575207, z: 6.3374367}
   m_Center: {x: 0.32048035, y: 3.8747845, z: 2.8456898}
+--- !u!114 &1877020137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877020133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b374e8cf519b843bc568d6134df594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 503195194}
+  animationSetups:
+  - animationType: 1
+    trigger: Idle
+  - animationType: 2
+    trigger: Run
+  - animationType: 3
+    trigger: Attack
+  - animationType: 4
+    trigger: Death
 --- !u!1001 &1889132732
 PrefabInstance:
   m_ObjectHideFlags: 0
