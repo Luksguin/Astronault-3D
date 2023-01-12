@@ -26,7 +26,6 @@ public class ReloadGun : GunBase
         {
             Shoot();
             _currentAmount++;
-            //Debug.Log(_currentAmount);
             CheckReload();
             UpdateUI();
             yield return new WaitForSeconds(timeBetweenShoot);
@@ -37,7 +36,11 @@ public class ReloadGun : GunBase
     {
         if (_currentAmount >= maxAmount)
         {
-            StopCoroutine(StartShoot());
+            if(_currentCoroutine != null)
+            {
+                StopCoroutine(_currentCoroutine);
+                _currentCoroutine = null;
+            }
             StartReload();
         }
     }

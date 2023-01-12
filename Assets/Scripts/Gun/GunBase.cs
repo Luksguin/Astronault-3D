@@ -8,7 +8,7 @@ public class GunBase : MonoBehaviour
     public Transform positionShoot;
     public float timeBetweenShoot;
 
-    private Coroutine _currentCoroutine;
+    protected Coroutine _currentCoroutine;
 
     protected virtual IEnumerator StartShoot()
     {
