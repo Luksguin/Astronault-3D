@@ -5660,7 +5660,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179709625}
-  m_LocalRotation: {x: 0.0591533, y: 0.07518616, z: -0.004468047, w: 0.99540347}
+  m_LocalRotation: {x: 0.059153266, y: 0.07518616, z: -0.0044680443, w: 0.99540347}
   m_LocalPosition: {x: 418.6, y: 7.5, z: 41.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7279,7 +7279,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.0591533, y: 0.07518616, z: -0.004468047, w: 0.99540347}
+  m_LocalRotation: {x: 0.059153266, y: 0.07518616, z: -0.0044680443, w: 0.99540347}
   m_LocalPosition: {x: 418.6, y: 7.5, z: 41.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -9604,7 +9604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1877020134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9924,7 +9924,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005962c22d67f4b42bb8419bfc0713bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunBase: {fileID: 5200442084256958325, guid: abe8f8f20d9bf2d41ac15f70ca89b7cf, type: 3}
+  guns:
+  - {fileID: 5200442084256958325, guid: abe8f8f20d9bf2d41ac15f70ca89b7cf, type: 3}
+  - {fileID: 1234299939580344554, guid: ec7bc3c5c90039348ad155ff967c73fa, type: 3}
+  - {fileID: 6539327253051112731, guid: ef2b2e0e7650d4340adc48cb81d9eb06, type: 3}
   gunPosition: {fileID: 132228154}
 --- !u!1001 &1942738931
 PrefabInstance:
