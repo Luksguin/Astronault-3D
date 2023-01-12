@@ -9619,6 +9619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAnimationBase: {fileID: 1877020137}
   life: 10
+  Mycollider: {fileID: 1877020136}
   durationStartAnimation: 0.5
   easeStartAnimation: 27
 --- !u!4 &1877020135
@@ -9629,7 +9630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877020133}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 419.72424, y: -7.2672224, z: 59.312283}
+  m_LocalPosition: {x: 415, y: -7.3, z: 40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 503195193}

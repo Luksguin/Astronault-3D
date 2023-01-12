@@ -7,11 +7,13 @@ using AnimationEnemy;
 namespace Enemy
 {
 
-    public class EnemyBase : MonoBehaviour
+    public class EnemyBase : MonoBehaviour, IDamageable
     {
         public EnemyAnimationBase enemyAnimationBase;
 
         public int life;
+        public Collider Mycollider;
+
         private int _currentLife;
 
         [Header("Animation")]
@@ -41,8 +43,9 @@ namespace Enemy
 
         protected virtual void OnKill()
         {
-            Destroy(gameObject, 5);
             PlayAnimationByTrigger(AnimationType.DEATH);
+            Destroy(Mycollider);
+            Destroy(gameObject, 4);
         }
 
         protected virtual void OnDamage(int damage)
@@ -53,6 +56,11 @@ namespace Enemy
             {
                 Kill();
             }
+        }
+
+        public void Damage(int damage)
+        {
+            OnDamage(damage);
         }
 
         public void StartAnimation()
