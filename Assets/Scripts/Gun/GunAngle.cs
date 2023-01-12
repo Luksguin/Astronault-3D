@@ -22,7 +22,7 @@ public class GunAngle : ReloadGun
             var projectille = Instantiate(projectillePrefab, positionShoot);
 
             projectille.transform.position = positionShoot.transform.position;
-            projectille.transform.eulerAngles = Vector3.zero + Vector3.up * (i % 2 == 0 ? angle : -angle) * mult;
+            projectille.transform.localEulerAngles = Vector3.zero + Vector3.up * (i % 2 == 0 ? angle : -angle) * mult;
 
             projectille.speed = speed;
             projectille.transform.parent = null;
