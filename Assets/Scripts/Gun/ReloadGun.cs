@@ -39,7 +39,7 @@ public class ReloadGun : GunBase
             yield return new WaitForSeconds(timeBetweenShoot);
         }
     }
-
+    
     public void CheckReload()
     {
         if (_currentAmount >= maxAmount)
