@@ -6,7 +6,6 @@ using AnimationEnemy;
 
 namespace Enemy
 {
-
     public class EnemyBase : MonoBehaviour, IDamageable
     {
         public EnemyAnimationBase enemyAnimationBase;
@@ -14,6 +13,7 @@ namespace Enemy
         public Collider mycollider;
         public ParticleSystem particleDamage;
         public int life;
+        public float timeToDestroy;
 
         private int _currentLife;
 
@@ -46,7 +46,7 @@ namespace Enemy
         {
             PlayAnimationByTrigger(AnimationType.DEATH);
             Destroy(mycollider);
-            Destroy(gameObject, 4);
+            Destroy(gameObject, timeToDestroy);
         }
         public void Damage(int damage)
         {
