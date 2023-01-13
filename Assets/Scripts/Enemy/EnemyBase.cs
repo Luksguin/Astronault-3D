@@ -11,8 +11,8 @@ namespace Enemy
     {
         public EnemyAnimationBase enemyAnimationBase;
         public FlashEnemy flashEnemy;
-
         public Collider mycollider;
+        public ParticleSystem particleDamage;
         public int life;
 
         private int _currentLife;
@@ -56,9 +56,10 @@ namespace Enemy
         protected virtual void OnDamage(int damage)
         {
             _currentLife -= damage;
-            flashEnemy.Flash();
+            if(flashEnemy != null) flashEnemy.Flash();
+            if (particleDamage != null) particleDamage.Play();
 
-            if(_currentLife <= 0)
+            if (_currentLife <= 0)
             {
                 Kill();
             }

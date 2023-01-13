@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3088658615040212348}
   - component: {fileID: 4909213898753135409}
   m_Layer: 0
-  m_Name: PFB_ProjectilleBase
+  m_Name: PFB_ProjectileBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
