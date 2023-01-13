@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3088658615040212348}
   - component: {fileID: 4909213898753135409}
   m_Layer: 0
-  m_Name: PFB_Projectille
+  m_Name: PFB_ProjectilleAngle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,6 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce103780f4ee5940957581bbf6cf478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 2
-  speed: 25
-  timeToDestroy: 1.5
+  damageAmount: 3
+  speed: 15
+  timeToDestroy: 2.5

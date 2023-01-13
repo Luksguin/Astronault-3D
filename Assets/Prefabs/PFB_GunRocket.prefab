@@ -43,9 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0523cf53a1cdc3644a6517f09df8f111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectillePrefab: {fileID: 4909213898753135409, guid: 65a3d93421d31b547a92f229ea35c3bb, type: 3}
+  projectillePrefab: {fileID: 4909213898753135409, guid: e5d9aca5140f3f4448a3ad6a9ce08c43, type: 3}
   positionShoot: {fileID: 4103811812886474681}
-  timeToDestroyProjectille: 3.5
   timeBetweenShoot: 1
   uIGuns: []
   maxAmount: 1
