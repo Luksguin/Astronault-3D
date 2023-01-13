@@ -10,9 +10,10 @@ namespace Enemy
     public class EnemyBase : MonoBehaviour, IDamageable
     {
         public EnemyAnimationBase enemyAnimationBase;
+        public FlashEnemy flashEnemy;
 
+        public Collider mycollider;
         public int life;
-        public Collider Mycollider;
 
         private int _currentLife;
 
@@ -33,7 +34,7 @@ namespace Enemy
 
         private void ResetLife()
         {
-         _currentLife = life;
+            _currentLife = life;
         }
 
         private void Kill()
@@ -44,23 +45,23 @@ namespace Enemy
         protected virtual void OnKill()
         {
             PlayAnimationByTrigger(AnimationType.DEATH);
-            Destroy(Mycollider);
+            Destroy(mycollider);
             Destroy(gameObject, 4);
+        }
+        public void Damage(int damage)
+        {
+            OnDamage(damage);
         }
 
         protected virtual void OnDamage(int damage)
         {
             _currentLife -= damage;
+            flashEnemy.Flash();
 
             if(_currentLife <= 0)
             {
                 Kill();
             }
-        }
-
-        public void Damage(int damage)
-        {
-            OnDamage(damage);
         }
 
         public void StartAnimation()
