@@ -48,9 +48,10 @@ namespace Enemy
             Destroy(mycollider);
             Destroy(gameObject, timeToDestroy);
         }
-        public void Damage(int damage)
+        public void Damage(int damage, Vector3 dir)
         {
             OnDamage(damage);
+            transform.DOMove(transform.position - dir, .1f);
         }
 
         protected virtual void OnDamage(int damage)
@@ -58,6 +59,8 @@ namespace Enemy
             currentLife -= damage;
             if(flashEnemy != null) flashEnemy.Flash();
             if (particleDamage != null) particleDamage.Play();
+
+            transform.position -= transform.forward;
 
             if (currentLife <= 0)
             {

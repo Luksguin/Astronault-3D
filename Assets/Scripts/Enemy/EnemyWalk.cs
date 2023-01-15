@@ -25,6 +25,7 @@ namespace Enemy
                 }
 
                 transform.position = Vector3.MoveTowards(transform.position, nextPosition[_index].position, Time.deltaTime * speed);
+                transform.LookAt(nextPosition[_index]);
             }
         }
     }
