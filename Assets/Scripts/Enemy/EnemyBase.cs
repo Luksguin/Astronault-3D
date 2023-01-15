@@ -15,7 +15,7 @@ namespace Enemy
         public int life;
         public float timeToDestroy;
 
-        private int _currentLife;
+        protected int currentLife;
 
         [Header("Animation")]
         public float durationStartAnimation;
@@ -34,7 +34,7 @@ namespace Enemy
 
         private void ResetLife()
         {
-            _currentLife = life;
+            currentLife = life;
         }
 
         private void Kill()
@@ -55,11 +55,11 @@ namespace Enemy
 
         protected virtual void OnDamage(int damage)
         {
-            _currentLife -= damage;
+            currentLife -= damage;
             if(flashEnemy != null) flashEnemy.Flash();
             if (particleDamage != null) particleDamage.Play();
 
-            if (_currentLife <= 0)
+            if (currentLife <= 0)
             {
                 Kill();
             }
