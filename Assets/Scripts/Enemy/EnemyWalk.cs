@@ -14,19 +14,20 @@ namespace Enemy
 
         private int _index = 0;
 
-        private void Update()
+        protected override void Update()
         {
-            if(currentLife > 0)
+            base.Update();
+            if (currentLife <= 0) return;
+            
+            if (Vector3.Distance(transform.position, nextPosition[_index].position) < minDistance)
             {
-                if (Vector3.Distance(transform.position, nextPosition[_index].position) < minDistance)
-                {
-                    _index++;
-                    if (_index >= nextPosition.Length) _index = 0;
-                }
+                _index++;
+                if (_index >= nextPosition.Length) _index = 0;
+            }
 
                 transform.position = Vector3.MoveTowards(transform.position, nextPosition[_index].position, Time.deltaTime * speed);
                 transform.LookAt(nextPosition[_index]);
-            }
+            
         }
     }
 }

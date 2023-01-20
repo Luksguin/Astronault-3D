@@ -12,6 +12,7 @@ namespace Enemy
         public FlashColor flashEnemy;
         public Collider mycollider;
         public ParticleSystem particleDamage;
+        public Player player;
         public int life;
         public float timeToDestroy;
 
@@ -94,6 +95,11 @@ namespace Enemy
             {
                 p.Damage(1);
             }
+        }
+
+        protected virtual void Update()
+        {
+            if(player != null) transform.LookAt(player.transform.position);
         }
     }
 }
