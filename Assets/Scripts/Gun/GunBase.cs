@@ -6,14 +6,9 @@ public class GunBase : MonoBehaviour
 {
     public ProjectilleBase projectillePrefab;
     public Transform positionShoot;
-    //public float timeToDestroyProjectille;
     public float timeBetweenShoot;
 
     protected Coroutine _currentCoroutine;
-    private void Update()
-    {
-        //projectillePrefab.timeToDestroy = timeToDestroyProjectille;
-    }
 
     protected virtual IEnumerator StartShoot()
     {

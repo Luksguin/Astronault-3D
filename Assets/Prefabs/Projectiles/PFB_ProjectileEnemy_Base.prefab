@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3088658615040212348}
   - component: {fileID: 4909213898753135409}
   m_Layer: 0
-  m_Name: PFB_ProjectileRocket
+  m_Name: PFB_ProjectileEnemy_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - Enemy
-  damageAmount: 10
+  - Player
+  damageAmount: 2
   speed: 25
-  timeToDestroy: 7
+  timeToDestroy: 5

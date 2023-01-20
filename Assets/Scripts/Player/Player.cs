@@ -28,7 +28,7 @@ public class Player : MonoBehaviour, IDamageable
 
     public void Damage(int damage, Vector3 dir)
     {
-
+        Damage(damage);
     }
 
     private void Run()

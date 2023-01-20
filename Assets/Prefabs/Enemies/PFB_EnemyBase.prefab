@@ -5528,8 +5528,8 @@ GameObject:
   - component: {fileID: 6800241213761839798}
   - component: {fileID: 6800241213761839799}
   m_Layer: 0
-  m_Name: PFB_Enemy_Green
-  m_TagString: Untagged
+  m_Name: PFB_EnemyBase
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -156,6 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce103780f4ee5940957581bbf6cf478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tags:
+  - Enemy
   damageAmount: 3
   speed: 15
   timeToDestroy: 2.5
