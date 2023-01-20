@@ -9,7 +9,7 @@ namespace Enemy
     public class EnemyBase : MonoBehaviour, IDamageable
     {
         public EnemyAnimationBase enemyAnimationBase;
-        public FlashEnemy flashEnemy;
+        public FlashColor flashEnemy;
         public Collider mycollider;
         public ParticleSystem particleDamage;
         public int life;
@@ -42,12 +42,20 @@ namespace Enemy
             OnKill();
         }
 
+        #region INTERFACES
         protected virtual void OnKill()
         {
             PlayAnimationByTrigger(AnimationType.DEATH);
             Destroy(mycollider);
             Destroy(gameObject, timeToDestroy);
         }
+
+        public void Damage(int damage)
+        {
+
+        }
+        #endregion
+
         public void Damage(int damage, Vector3 dir)
         {
             OnDamage(damage);
@@ -78,11 +86,13 @@ namespace Enemy
             enemyAnimationBase.PlayAnimationByTrigger(type);
         }
 
-        private void Update()
+        private void OnCollisionEnter(Collision collision)
         {
-            if (Input.GetKeyDown(KeyCode.P))
+            Player p = collision.transform.GetComponent<Player>();
+
+            if(p != null)
             {
-                OnDamage(5);
+                p.Damage(1);
             }
         }
     }
