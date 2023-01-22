@@ -20,7 +20,8 @@ namespace Boss
     {
         public StateMachine<BossAction> stateMachine;
 
-        [Header("Animations")]
+        [Header("Init")]
+        public Transform player;
         public float startAnimationDuration;
         public Ease startAnimationEase;
 
@@ -30,6 +31,7 @@ namespace Boss
         public float speed;
 
         [Header("Attack")]
+        public GunBase gunBase;
         public int amountAttack;
         public float timeBetweenAttacks;
 
@@ -53,10 +55,10 @@ namespace Boss
             stateMachine.Register(BossAction.DEATH, new BossStateDeath());
         }
 
-        #region ANIMATIONS
-        public void StartInitAnimation()
+        #region INIT
+        public void InitAnimation()
         {
-            transform.DOScale(0, startAnimationDuration).SetEase(startAnimationEase).From();
+            transform.DOScale(1, startAnimationDuration).SetEase(startAnimationEase);
         }
         #endregion
 
@@ -82,6 +84,7 @@ namespace Boss
         public void Attack(Action endAttack = null)
         {
             StartCoroutine(AttackCoroutine(endAttack));
+            gunBase.InitShoot();
         }
 
         IEnumerator AttackCoroutine(Action endAttack = null)
@@ -92,6 +95,7 @@ namespace Boss
             {
                 currAmount++;
                 transform.DOScale(1.2f, .1f).SetLoops(2, LoopType.Yoyo);
+                //gunBase.InitShoot();
                 yield return new WaitForSeconds(timeBetweenAttacks);
             }
 
@@ -101,32 +105,17 @@ namespace Boss
 
         public void BossKill(HealthBase h)
         {
-            SwitchState(BossAction.DEATH);
+            ChangeState(BossAction.DEATH);
         }
 
-        public void SwitchState(BossAction state)
+        public void ChangeState(BossAction state)
         {
             stateMachine.SwitchStates(state, this);
         }
 
-        #region DEBUG
-        [NaughtyAttributes.Button]
-        private void SwitchStateInit()
+        private void Update()
         {
-            SwitchState(BossAction.INIT);
+            if (player != null) transform.LookAt(player);
         }
-
-        [NaughtyAttributes.Button]
-        private void SwitchStateWalk()
-        {
-            SwitchState(BossAction.WALK);
-        }
-
-        [NaughtyAttributes.Button]
-        private void SwitchStateAttack()
-        {
-            SwitchState(BossAction.ATTACK);
-        }
-        #endregion
     }
 }

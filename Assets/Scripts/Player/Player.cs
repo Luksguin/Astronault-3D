@@ -18,9 +18,10 @@ public class Player : MonoBehaviour, IDamageable
     public string runBool;
     public string jumpBool;
 
-    [Header("Flash")]
+    [Header("Life")]
     public List<FlashColor> flashColors;
 
+    #region INTERFACE
     public void Damage(int damage)
     {
         flashColors.ForEach(i => i.Flash());
@@ -30,7 +31,9 @@ public class Player : MonoBehaviour, IDamageable
     {
         Damage(damage);
     }
+    #endregion
 
+    #region MOVIMENTS
     private void Run()
     {
         transform.Rotate(0, Input.GetAxis("Horizontal") * spinSpeed * Time.deltaTime, 0);
@@ -70,6 +73,7 @@ public class Player : MonoBehaviour, IDamageable
             }
         }
     }
+    #endregion 
 
     void Update()
     {

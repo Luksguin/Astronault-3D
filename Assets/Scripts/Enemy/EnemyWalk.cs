@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using AnimationEnemy;
 
 namespace Enemy
 {
@@ -25,9 +26,9 @@ namespace Enemy
                 if (_index >= nextPosition.Length) _index = 0;
             }
 
-                transform.position = Vector3.MoveTowards(transform.position, nextPosition[_index].position, Time.deltaTime * speed);
-                transform.LookAt(nextPosition[_index]);
-            
+            transform.position = Vector3.MoveTowards(transform.position, nextPosition[_index].position, Time.deltaTime * speed);
+            PlayAnimationByTrigger(AnimationType.RUN);
+            transform.LookAt(nextPosition[_index]);
         }
     }
 }

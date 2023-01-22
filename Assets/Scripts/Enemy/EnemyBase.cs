@@ -43,24 +43,11 @@ namespace Enemy
             OnKill();
         }
 
-        #region INTERFACES
         protected virtual void OnKill()
         {
             PlayAnimationByTrigger(AnimationType.DEATH);
             Destroy(mycollider);
             Destroy(gameObject, timeToDestroy);
-        }
-
-        public void Damage(int damage)
-        {
-
-        }
-        #endregion
-
-        public void Damage(int damage, Vector3 dir)
-        {
-            OnDamage(damage);
-            transform.DOMove(transform.position - dir, .1f);
         }
 
         protected virtual void OnDamage(int damage)
@@ -76,6 +63,19 @@ namespace Enemy
                 Kill();
             }
         }
+
+        #region INTERFACES
+        public void Damage(int damage)
+        {
+
+        }
+
+        public void Damage(int damage, Vector3 dir)
+        {
+            OnDamage(damage);
+            transform.DOMove(transform.position - dir, .1f);
+        }
+        #endregion
 
         public void StartAnimation()
         {

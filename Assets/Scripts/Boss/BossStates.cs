@@ -21,7 +21,8 @@ namespace Boss
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
-            boss.StartInitAnimation();
+            boss.InitAnimation();
+            boss.ChangeState(BossAction.WALK);
         }
     }
 
@@ -35,7 +36,7 @@ namespace Boss
 
         public void OnArrive()
         {
-            boss.SwitchState(BossAction.ATTACK);
+            boss.ChangeState(BossAction.ATTACK);
         }
 
         public override void OnStateExit()
@@ -55,7 +56,7 @@ namespace Boss
 
         public void EndAttack()
         {
-            boss.SwitchState(BossAction.WALK);
+            boss.ChangeState(BossAction.WALK);
         }
         public override void OnStateExit()
         {
