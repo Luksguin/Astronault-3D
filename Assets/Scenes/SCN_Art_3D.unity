@@ -5797,7 +5797,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179709625}
-  m_LocalRotation: {x: 0.059153266, y: 0.07518616, z: -0.0044680443, w: 0.99540347}
+  m_LocalRotation: {x: 0.0591533, y: 0.07518616, z: -0.004468047, w: 0.99540347}
   m_LocalPosition: {x: 414, y: 7.5, z: 26.529999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7459,7 +7459,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.059153266, y: 0.07518616, z: -0.0044680443, w: 0.99540347}
+  m_LocalRotation: {x: 0.0591533, y: 0.07518616, z: -0.004468047, w: 0.99540347}
   m_LocalPosition: {x: 414, y: 7.5, z: 26.529999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -9745,7 +9745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1870463022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10458,6 +10458,14 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1934283281}
+    - target: {fileID: 1790420251359948419, guid: b2997fe6a3bd45b468ac8dddbb6d5bfb, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790420251359948419, guid: b2997fe6a3bd45b468ac8dddbb6d5bfb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2381537322947044514, guid: b2997fe6a3bd45b468ac8dddbb6d5bfb, type: 3}
       propertyPath: m_Name
       value: PFB_EnemyShooter
@@ -12805,6 +12813,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5933525562971082988, guid: e32b6d47abcff3e449c8f170cf3b83d0, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5933525562971082991, guid: e32b6d47abcff3e449c8f170cf3b83d0, type: 3}
       propertyPath: player
       value: 
@@ -13017,6 +13029,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2553126619797479958, guid: 155646d7ac14e5646895ba927b73e1c1, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553126619797479958, guid: 155646d7ac14e5646895ba927b73e1c1, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6800241212515735941, guid: 155646d7ac14e5646895ba927b73e1c1, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
