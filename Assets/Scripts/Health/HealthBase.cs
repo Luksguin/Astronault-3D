@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HealthBase : MonoBehaviour
+{
+    public Action<HealthBase> onDamage;
+    public Action<HealthBase> onKill;
+
+    public int life;
+    public float timeToDestroy;
+
+    private float _currentLife;
+
+    private void Awake()
+    {
+        Init();
+    }
+
+    public void Init()
+    {
+        ResetLife();
+    }
+
+    private void ResetLife()
+    {
+        _currentLife = life;
+    }
+
+    private void Kill()
+    {
+        Destroy(gameObject, timeToDestroy);
+
+        onKill?.Invoke(this);
+    }
+
+    [NaughtyAttributes.Button]
+    public void StartDamage()
+    {
+        Damage(5);
+    }
+
+    private void Damage(int damage)
+    {
+        _currentLife -= damage;
+
+        onDamage?.Invoke(this);
+
+        if (_currentLife <= 0)
+        {
+            Kill();
+        }
+    }
+}
