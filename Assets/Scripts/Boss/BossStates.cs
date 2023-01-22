@@ -30,7 +30,26 @@ namespace Boss
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
-            boss.RandomWalk();
+            boss.RandomWalk(OnArrive);
+        }
+
+        public void OnArrive()
+        {
+            boss.SwitchState(BossAction.ATTACK);
+        }
+    }
+
+    public class BossStateAttack : BossStateBase
+    {
+        public override void OnStateEnter(params object[] objs)
+        {
+            base.OnStateEnter(objs);
+            boss.Attack(EndAttack);
+        }
+
+        public void EndAttack()
+        {
+            boss.SwitchState(BossAction.WALK);
         }
     }
 }
