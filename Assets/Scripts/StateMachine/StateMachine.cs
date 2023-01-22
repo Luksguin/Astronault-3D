@@ -22,15 +22,16 @@ namespace Ebac.StateMachine
         public void Register(T typeEnum, StateBase state)
         {
             dicionaryStates.Add(typeEnum, state);
+            //Debug.Log(typeEnum);
         }
 
-        public void SwitchStates(T state)
+        public void SwitchStates(T state, params object[] objs)
         {
             if (_currentstate != null) _currentstate.OnStateExit();
 
             _currentstate = dicionaryStates[state];
 
-            _currentstate.OnStateEnter();
+            _currentstate.OnStateEnter(objs);
         }
 
         public void Update()
@@ -38,5 +39,4 @@ namespace Ebac.StateMachine
             if (_currentstate != null) _currentstate.OnStateStay();
         }
     }
-
 }

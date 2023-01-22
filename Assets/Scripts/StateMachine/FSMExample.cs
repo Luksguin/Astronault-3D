@@ -16,11 +16,11 @@ public class FSMExample : MonoBehaviour
 
     private void Start()
     {
-        stateMachine = new StateMachine<EnumExemple>();
+        /*stateMachine = new StateMachine<EnumExemple>();
 
         stateMachine.Init();
         stateMachine.Register(EnumExemple.STATE_ONE, new StateBase());
         stateMachine.Register(EnumExemple.STATE_TWO, new StateBase());
-        stateMachine.Register(EnumExemple.STATE_THREE, new StateBase());
+        stateMachine.Register(EnumExemple.STATE_THREE, new StateBase());*/
     }
 }
