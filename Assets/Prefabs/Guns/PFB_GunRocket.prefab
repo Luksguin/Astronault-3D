@@ -49,5 +49,6 @@ MonoBehaviour:
   uIGuns: []
   maxAmount: 1
   timeOfReload: 5
+  isPlayer: 1
   projectilleBase: {fileID: 4909213898753135409, guid: 65a3d93421d31b547a92f229ea35c3bb, type: 3}
   size: 2.5

@@ -49,6 +49,7 @@ MonoBehaviour:
   uIGuns: []
   maxAmount: 3
   timeOfReload: 10
+  isPlayer: 1
   shootAmount: 6
   angle: 20
   speed: 10

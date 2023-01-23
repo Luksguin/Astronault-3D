@@ -45,9 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectillePrefab: {fileID: 4909213898753135409, guid: 65a3d93421d31b547a92f229ea35c3bb, type: 3}
   positionShoot: {fileID: 2893525994177633700}
-  timeToDestroyProjectille: 6
   timeBetweenShoot: 0.2
   uIGuns:
   - {fileID: 0}
   maxAmount: 5
   timeOfReload: 2
+  isPlayer: 1
