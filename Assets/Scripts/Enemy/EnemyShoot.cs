@@ -20,6 +20,7 @@ namespace Enemy
             gun.InitShoot();
             PlayAnimationByTrigger(AnimationType.ATTACK);
         }
+
         protected override void Update()
         {
             base.Update();

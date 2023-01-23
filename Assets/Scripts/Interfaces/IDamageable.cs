@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IDamageable
 {
     public void Damage(int damage);
-    public void Damage(int damage, Vector3 dir);
+    public void DamageVector(int damage, Vector3 dir);
 }

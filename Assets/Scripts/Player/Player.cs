@@ -27,7 +27,7 @@ public class Player : MonoBehaviour, IDamageable
         flashColors.ForEach(i => i.Flash());
     }
 
-    public void Damage(int damage, Vector3 dir)
+    public void DamageVector(int damage, Vector3 dir)
     {
         Damage(damage);
     }

@@ -9,6 +9,7 @@ public class ReloadGun : GunBase
 
     public int maxAmount;
     public float timeOfReload;
+    public bool isPlayer;
 
     private int _currentAmount;
     private float _shootTime;
@@ -80,6 +81,6 @@ public class ReloadGun : GunBase
 
     public void GetAllUIs()
     {
-        uIGuns = GameObject.FindObjectsOfType<UIGun>().ToList();
+        if(isPlayer) uIGuns = GameObject.FindObjectsOfType<UIGun>().ToList();
     }
 }

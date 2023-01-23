@@ -29,7 +29,7 @@ public class ProjectilleBase : MonoBehaviour
                     dir = -dir.normalized;
                     dir.y = 0;
 
-                    damageable.Damage(damageAmount, dir);
+                    damageable.DamageVector(damageAmount, dir);
                     Destroy(gameObject);
                 }
 
