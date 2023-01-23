@@ -39,11 +39,13 @@ namespace Boss
         [Header("Health/Death")]
         public HealthBase healthBase;
         public EnemyAnimationBase enemyAnimationBase;
+        public FlashColor flashColor;
 
         private void Awake()
         {
             Init();
             healthBase.onKill += BossKill;
+            healthBase.onDamage += BossDamage;
         }
 
         public void Init()
@@ -129,6 +131,11 @@ namespace Boss
             PlayAnimationByTrigger(AnimationType.DEATH);
         }
         #endregion
+
+        public void BossDamage(HealthBase h)
+        {
+            flashColor.Flash();
+        }
 
         public void PlayAnimationByTrigger(AnimationType type)
         {

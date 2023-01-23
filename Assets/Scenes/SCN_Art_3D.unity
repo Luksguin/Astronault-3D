@@ -10390,6 +10390,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1.2
   healthBase: {fileID: 1870463024}
   enemyAnimationBase: {fileID: 1870463027}
+  flashColor: {fileID: 1870463028}
 --- !u!4 &1870463023
 Transform:
   m_ObjectHideFlags: 0
@@ -10418,7 +10419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea45a81fb60e89408c28a606dee1005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashColor: {fileID: 1870463028}
   life: 10
   timeToDestroy: 4
 --- !u!136 &1870463025
@@ -10743,6 +10743,7 @@ GameObject:
   - component: {fileID: 1934283283}
   - component: {fileID: 1934283281}
   - component: {fileID: 1934283282}
+  - component: {fileID: 1934283284}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -10808,6 +10809,7 @@ MonoBehaviour:
   - {fileID: 713754419}
   - {fileID: 29181989}
   - {fileID: 1856670465}
+  healthBase: {fileID: 1934283284}
 --- !u!114 &1934283282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10838,6 +10840,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.3, y: 3.7, z: 2.5}
   m_Center: {x: 0, y: 1.8, z: 0.1}
+--- !u!114 &1934283284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934283278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea45a81fb60e89408c28a606dee1005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 5
+  timeToDestroy: 2
 --- !u!114 &1935774829 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4533029498156878072, guid: b2997fe6a3bd45b468ac8dddbb6d5bfb, type: 3}
