@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public Animator playerAnimator;
     public string runBool;
     public string jumpBool;
+    public string deathTrigger;
 
     [Header("Life")]
     public List<FlashColor> flashColors;
@@ -32,6 +33,12 @@ public class Player : MonoBehaviour
         OnValidate();
 
         healthBase.onDamage += Damage;
+        healthBase.onKill += KillAnimation;
+    }
+
+    public void KillAnimation(HealthBase h)
+    {
+        playerAnimator.SetTrigger(deathTrigger);
     }
 
     #region INTERFACE
@@ -40,15 +47,14 @@ public class Player : MonoBehaviour
         flashColors.ForEach(i => i.Flash());
     }
 
-    public void DamageVector(int damage, Vector3 dir)
-    {
-        //Damage(damage);
-    }
+    public void DamageVector(int damage, Vector3 dir) { }
     #endregion
 
     #region MOVIMENTS
     private void Run()
     {
+        if (characterController.enabled == false) return;
+
         transform.Rotate(0, Input.GetAxis("Horizontal") * spinSpeed * Time.deltaTime, 0);
 
         if (Input.GetKeyDown(KeyCode.LeftShift)) speed *= 2;
@@ -73,6 +79,8 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
+        if (characterController.enabled == false) return;
+
         if (characterController.isGrounded)
         {
             if (Input.GetKeyDown(KeyCode.Space))

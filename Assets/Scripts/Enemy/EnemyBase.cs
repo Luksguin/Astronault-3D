@@ -10,7 +10,7 @@ namespace Enemy
     {
         public EnemyAnimationBase enemyAnimationBase;
         public FlashColor flashEnemy;
-        public Collider mycollider;
+        public Collider myCollider;
         public ParticleSystem particleDamage;
         public Player player;
         public int life;
@@ -46,7 +46,7 @@ namespace Enemy
         protected virtual void OnKill()
         {
             PlayAnimationByTrigger(AnimationType.DEATH);
-            Destroy(mycollider);
+            Destroy(myCollider);
             Destroy(gameObject, timeToDestroy);
         }
 
@@ -99,7 +99,7 @@ namespace Enemy
 
         protected virtual void Update()
         {
-            if(player != null) transform.LookAt(player.transform.position);
+            if(player != null && currentLife > 0) transform.LookAt(player.transform.position);
         }
     }
 }

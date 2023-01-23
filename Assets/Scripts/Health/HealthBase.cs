@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HealthBase : MonoBehaviour, IDamageable
 {
+    public List<Collider> colliders;
+
     public Action<HealthBase> onDamage;
     public Action<HealthBase> onKill;
 
@@ -29,6 +31,7 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     private void Kill()
     {
+        colliders.ForEach(i => i.enabled = false);
         Destroy(gameObject, timeToDestroy);
 
         onKill?.Invoke(this);

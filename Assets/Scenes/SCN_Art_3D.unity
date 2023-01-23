@@ -8134,8 +8134,8 @@ GameObject:
   - component: {fileID: 1603894245}
   - component: {fileID: 1603894244}
   - component: {fileID: 1603894243}
-  - component: {fileID: 1603894242}
   - component: {fileID: 1603894241}
+  - component: {fileID: 1603894242}
   m_Layer: 0
   m_Name: BossHelper
   m_TagString: Untagged
@@ -8156,8 +8156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossBase: {fileID: 1870463022}
---- !u!65 &1603894242
-BoxCollider:
+--- !u!136 &1603894242
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8166,8 +8166,9 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1603894243
 MeshRenderer:
@@ -10419,6 +10420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea45a81fb60e89408c28a606dee1005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colliders:
+  - {fileID: 1870463025}
   life: 10
   timeToDestroy: 4
 --- !u!136 &1870463025
@@ -10805,6 +10808,7 @@ MonoBehaviour:
   playerAnimator: {fileID: 410366063}
   runBool: Run
   jumpBool: Jump
+  deathTrigger: Death
   flashColors:
   - {fileID: 713754419}
   - {fileID: 29181989}
@@ -10852,8 +10856,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea45a81fb60e89408c28a606dee1005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 5
-  timeToDestroy: 2
+  colliders:
+  - {fileID: 1934283280}
+  - {fileID: 1934283283}
+  life: 15
+  timeToDestroy: 10
 --- !u!114 &1935774829 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4533029498156878072, guid: b2997fe6a3bd45b468ac8dddbb6d5bfb, type: 3}
