@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ReloadGun : GunBase
 {
-    public List<UIGun> uIGuns;
+    public List<UIUpdater> uIGuns;
 
     public int maxAmount;
     public float timeOfReload;
@@ -81,6 +81,6 @@ public class ReloadGun : GunBase
 
     public void GetAllUIs()
     {
-        if(isPlayer) uIGuns = GameObject.FindObjectsOfType<UIGun>().ToList();
+        if(isPlayer) uIGuns = GameObject.FindObjectsOfType<UIUpdater>().ToList();
     }
 }

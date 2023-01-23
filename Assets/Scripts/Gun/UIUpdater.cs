@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class UIGun : MonoBehaviour
+public class UIUpdater : MonoBehaviour
 {
     public Image image;
     public float duration;

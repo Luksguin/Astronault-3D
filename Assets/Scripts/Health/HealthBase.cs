@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class HealthBase : MonoBehaviour, IDamageable
 {
+    public UIUpdater uiUpdater;
+
     public List<Collider> colliders;
+
+    public float life;
+    public float timeToDestroy;
 
     public Action<HealthBase> onDamage;
     public Action<HealthBase> onKill;
-
-    public int life;
-    public float timeToDestroy;
 
     private float _currentLife;
 
@@ -41,12 +43,19 @@ public class HealthBase : MonoBehaviour, IDamageable
     {
         _currentLife -= damage;
 
+        UiUpdate();
         onDamage?.Invoke(this);
 
         if (_currentLife <= 0)
         {
             Kill();
         }
+    }
+
+    public void UiUpdate()
+    {
+        if (uiUpdater != null)
+            uiUpdater.UpdateImage((float)_currentLife / life);
     }
 
     #region INTERFACE
