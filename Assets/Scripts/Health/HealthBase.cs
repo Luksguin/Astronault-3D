@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBase : MonoBehaviour
+public class HealthBase : MonoBehaviour, IDamageable
 {
     public Action<HealthBase> onDamage;
     public Action<HealthBase> onKill;
+
+    public FlashColor flashColor;
 
     public int life;
     public float timeToDestroy;
@@ -34,14 +36,9 @@ public class HealthBase : MonoBehaviour
         onKill?.Invoke(this);
     }
 
-    [NaughtyAttributes.Button]
-    public void StartDamage()
+    private void StartDamage(int damage)
     {
-        Damage(5);
-    }
-
-    private void Damage(int damage)
-    {
+        if (flashColor != null) flashColor.Flash();
         _currentLife -= damage;
 
         onDamage?.Invoke(this);
@@ -51,4 +48,13 @@ public class HealthBase : MonoBehaviour
             Kill();
         }
     }
+
+    #region INTERFACE
+    void IDamageable.Damage(int damage) { }
+
+    public void DamageVector(int damage, Vector3 dir)
+    {
+        StartDamage(damage);
+    }
+    #endregion 
 }

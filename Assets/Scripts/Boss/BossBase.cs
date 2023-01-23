@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ebac.StateMachine;
 using DG.Tweening;
+using AnimationEnemy;
 
 namespace Boss
 {
@@ -35,8 +36,9 @@ namespace Boss
         public int amountAttack;
         public float timeBetweenAttacks;
 
-        [Header("Health")]
+        [Header("Health/Death")]
         public HealthBase healthBase;
+        public EnemyAnimationBase enemyAnimationBase;
 
         private void Awake()
         {
@@ -68,6 +70,11 @@ namespace Boss
             StartCoroutine(RandomWalkCoroutine(wayPositions[UnityEngine.Random.Range(0, wayPositions.Count)], onArrive));
         }
 
+        public void WalkAnimation()
+        {
+            PlayAnimationByTrigger(AnimationType.RUN);
+        }
+
         IEnumerator RandomWalkCoroutine(Transform t, Action onArrive = null)
         {
             while (Vector3.Distance(transform.position, t.position) > minDistance)
@@ -84,7 +91,16 @@ namespace Boss
         public void Attack(Action endAttack = null)
         {
             StartCoroutine(AttackCoroutine(endAttack));
+        }
+
+        public void BossShoot()
+        {
             gunBase.InitShoot();
+        }
+
+        public void AttackAnimation()
+        {
+            PlayAnimationByTrigger(AnimationType.ATTACK);
         }
 
         IEnumerator AttackCoroutine(Action endAttack = null)
@@ -94,8 +110,7 @@ namespace Boss
             while(currAmount < amountAttack)
             {
                 currAmount++;
-                transform.DOScale(1.2f, .1f).SetLoops(2, LoopType.Yoyo);
-                //gunBase.InitShoot();
+                AttackAnimation();
                 yield return new WaitForSeconds(timeBetweenAttacks);
             }
 
@@ -103,9 +118,21 @@ namespace Boss
         }
         #endregion
 
+        #region DEATH
         public void BossKill(HealthBase h)
         {
             ChangeState(BossAction.DEATH);
+        }
+
+        public void KillAnimation()
+        {
+            PlayAnimationByTrigger(AnimationType.DEATH);
+        }
+        #endregion
+
+        public void PlayAnimationByTrigger(AnimationType type)
+        {
+            enemyAnimationBase.PlayAnimationByTrigger(type);
         }
 
         public void ChangeState(BossAction state)

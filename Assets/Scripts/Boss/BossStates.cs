@@ -32,6 +32,7 @@ namespace Boss
         {
             base.OnStateEnter(objs);
             boss.RandomWalk(OnArrive);
+            boss.WalkAnimation();
         }
 
         public void OnArrive()
@@ -52,6 +53,7 @@ namespace Boss
         {
             base.OnStateEnter(objs);
             boss.Attack(EndAttack);
+            boss.BossShoot();
         }
 
         public void EndAttack()
@@ -70,7 +72,7 @@ namespace Boss
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
-            Debug.Log("Death");
+            boss.KillAnimation();
         }
     }
 }
