@@ -7,8 +7,6 @@ public class HealthBase : MonoBehaviour, IDamageable
     public Action<HealthBase> onDamage;
     public Action<HealthBase> onKill;
 
-    public FlashColor flashColor;
-
     public int life;
     public float timeToDestroy;
 
@@ -38,7 +36,6 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     private void StartDamage(int damage)
     {
-        if (flashColor != null) flashColor.Flash();
         _currentLife -= damage;
 
         onDamage?.Invoke(this);

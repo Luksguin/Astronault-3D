@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IDamageable
+public class Player : MonoBehaviour
 {
     [Header("Moviments")]
     public CharacterController characterController;
@@ -20,16 +20,29 @@ public class Player : MonoBehaviour, IDamageable
 
     [Header("Life")]
     public List<FlashColor> flashColors;
+    public HealthBase healthBase;
+
+    private void OnValidate()
+    {
+        if (healthBase == null) healthBase = GetComponent<HealthBase>();
+    }
+
+    private void Awake()
+    {
+        OnValidate();
+
+        healthBase.onDamage += Damage;
+    }
 
     #region INTERFACE
-    public void Damage(int damage)
+    public void Damage(HealthBase h)
     {
         flashColors.ForEach(i => i.Flash());
     }
 
     public void DamageVector(int damage, Vector3 dir)
     {
-        Damage(damage);
+        //Damage(damage);
     }
     #endregion
 
