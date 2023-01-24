@@ -5,11 +5,9 @@ using UnityEngine;
 public class HealthBase : MonoBehaviour, IDamageable
 {
     public UIUpdater uiUpdater;
-
     public List<Collider> colliders;
-
     public float life;
-    public float timeToDestroy;
+    //public float timeToDestroy;
 
     public Action<HealthBase> onDamage;
     public Action<HealthBase> onKill;
@@ -26,7 +24,7 @@ public class HealthBase : MonoBehaviour, IDamageable
         ResetLife();
     }
 
-    private void ResetLife()
+    public void ResetLife()
     {
         _currentLife = life;
     }
@@ -34,12 +32,12 @@ public class HealthBase : MonoBehaviour, IDamageable
     private void Kill()
     {
         colliders.ForEach(i => i.enabled = false);
-        Destroy(gameObject, timeToDestroy);
+        //Destroy(gameObject, timeToDestroy);
 
         onKill?.Invoke(this);
     }
 
-    private void StartDamage(int damage)
+    public void StartDamage(int damage)
     {
         _currentLife -= damage;
 

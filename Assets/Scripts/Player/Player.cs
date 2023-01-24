@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     [Header("Animations")]
     public Animator playerAnimator;
+    public string idleTrigger;
     public string runBool;
     public string jumpBool;
     public string deathTrigger;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     [Header("Life")]
     public List<FlashColor> flashColors;
     public HealthBase healthBase;
+    public float timeToRevive;
 
     private void OnValidate()
     {
@@ -33,12 +35,22 @@ public class Player : MonoBehaviour
         OnValidate();
 
         healthBase.onDamage += Damage;
-        healthBase.onKill += KillAnimation;
+        healthBase.onKill += KillPlayer;
     }
 
-    public void KillAnimation(HealthBase h)
+    public void KillPlayer(HealthBase h)
     {
         playerAnimator.SetTrigger(deathTrigger);
+
+        Invoke(nameof(Revive), timeToRevive);
+    }
+
+    private void Revive()
+    {
+        Respawn();
+        playerAnimator.SetTrigger(idleTrigger);
+        healthBase.ResetLife();
+        healthBase.colliders.ForEach(i => i.enabled = true);
     }
 
     #region INTERFACE
@@ -94,11 +106,19 @@ public class Player : MonoBehaviour
             }
         }
     }
-    #endregion 
 
     void Update()
     {
         Run();
         Jump();
+    }
+    #endregion 
+
+    public void Respawn()
+    {
+        if (CheckPointManager.instance.HasCheckPoint())
+        {
+            transform.position = CheckPointManager.instance.GetPosition();
+        }
     }
 }
