@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     {
         playerAnimator.SetTrigger(deathTrigger);
 
-        Invoke(nameof(Revive), timeToRevive);
+        if (CheckPointManager.instance.HasCheckPoint()) Invoke(nameof(Revive), timeToRevive);
     }
 
     private void Revive()
