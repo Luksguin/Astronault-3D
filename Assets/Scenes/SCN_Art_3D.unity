@@ -1118,11 +1118,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1336581049}
     - target: {fileID: 1416130968470756349, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}
+      propertyPath: message
+      value: 
+      objectReference: {fileID: 1336581049}
+    - target: {fileID: 1416130968470756349, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}
+      propertyPath: easeMessageAnimation
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 1416130968470756349, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}
       propertyPath: timeOfMensageInScreen
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1416130968470756349, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}
+      propertyPath: timeOfMessageInScreen
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1416130968470756349, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}
       propertyPath: durationMensageAnimation
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1416130968470756349, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}
+      propertyPath: durationMessageAnimation
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2624423540379337730, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}
@@ -1277,7 +1293,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1336581049}
     - target: {fileID: 1416130968470756349, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}
+      propertyPath: message
+      value: 
+      objectReference: {fileID: 1336581049}
+    - target: {fileID: 1416130968470756349, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}
+      propertyPath: easeMessageAnimation
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1416130968470756349, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}
+      propertyPath: timeOfMessageInScreen
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1416130968470756349, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}
       propertyPath: durationMensageAnimation
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1416130968470756349, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}
+      propertyPath: durationMessageAnimation
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2624423540379337730, guid: a44e8ba905df7d440abebf2e3e2f9f64, type: 3}

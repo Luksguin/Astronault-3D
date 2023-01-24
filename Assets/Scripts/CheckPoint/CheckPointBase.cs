@@ -11,7 +11,7 @@ public class CheckPointBase : MonoBehaviour
     [Header("Animation")]
     public GameObject message;
     public float durationMessageAnimation;
-    //public float timeOfMessageInScreen;
+    public float timeOfMessageInScreen;
     public Ease easeMessageAnimation;
 
     public int key;
@@ -32,7 +32,7 @@ public class CheckPointBase : MonoBehaviour
     IEnumerator ShowMessage()
     {
         message.transform.DOScale(1, durationMessageAnimation).SetEase(easeMessageAnimation);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(timeOfMessageInScreen);
         message.transform.DOScale(0, durationMessageAnimation).SetEase(easeMessageAnimation);
     }
 
