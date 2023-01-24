@@ -158,6 +158,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - Player
-  damageAmount: 2
+  damageAmount: 5
   speed: 25
   timeToDestroy: 5

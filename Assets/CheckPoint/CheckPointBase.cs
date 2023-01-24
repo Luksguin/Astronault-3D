@@ -8,8 +8,8 @@ public class CheckPointBase : MonoBehaviour
     public Color onColor;
 
     public int key;
-    private string _keyString = "CheckPointKey";
 
+    //private string _keyString = "CheckPointKey";
     private bool _isCheck = false;
 
     private void OnTriggerEnter(Collider other)
@@ -29,7 +29,6 @@ public class CheckPointBase : MonoBehaviour
     private void TurnOn()
     {
         meshRenderer.material.SetColor("_EmissionColor", onColor);
-        Debug.Log("On");
     }
 
     private void TurnOff()
@@ -39,10 +38,13 @@ public class CheckPointBase : MonoBehaviour
 
     private void SaveCheckPoint()
     {
-        if(PlayerPrefs.GetInt("CheckPointKey", 0) > key)
+        /*if(PlayerPrefs.GetInt("CheckPointKey", 0) > key)
         {
             PlayerPrefs.SetInt("CheckPointKey", key);
-        }
-            _isCheck = true;
+        }*/
+
+        _isCheck = true;
+
+        CheckPointManager.instance.CheckCheckPoint(key);
     }
 }
