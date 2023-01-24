@@ -97,6 +97,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 4569798190614996439}
   onColor: {r: 1, g: 1, b: 1, a: 1}
+  mensage: {fileID: 3834410213706496584, guid: 9d387741dbc759a438cec3e73ee8654b, type: 3}
+  durationMensageAnimation: 0.1
+  easeMensageAnimation: 27
+  key: 0
 --- !u!135 &5073200302241111746
 SphereCollider:
   m_ObjectHideFlags: 0

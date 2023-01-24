@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CheckPointBase : MonoBehaviour
 {
     public MeshRenderer meshRenderer;
     public Color onColor;
+
+    [Header("Animation")]
+    public GameObject message;
+    public float durationMessageAnimation;
+    //public float timeOfMessageInScreen;
+    public Ease easeMessageAnimation;
 
     public int key;
 
@@ -17,14 +24,17 @@ public class CheckPointBase : MonoBehaviour
         if(other.transform.tag == "Player" && !_isCheck)
         {
             TurnOn();
+            StartCoroutine(ShowMessage());
             SaveCheckPoint();
         }
     }
 
-    /*private void OnTriggerExit(Collider other)
+    IEnumerator ShowMessage()
     {
-        TurnOff();
-    }*/
+        message.transform.DOScale(1, durationMessageAnimation).SetEase(easeMessageAnimation);
+        yield return new WaitForSeconds(2);
+        message.transform.DOScale(0, durationMessageAnimation).SetEase(easeMessageAnimation);
+    }
 
     private void TurnOn()
     {
