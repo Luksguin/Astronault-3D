@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -13,17 +14,20 @@ public class Player : MonoBehaviour
 
     private float _vGravity;
 
-    [Header("Animations")]
+    [Header("Animator")]
     public Animator playerAnimator;
     public string idleTrigger;
     public string runBool;
     public string jumpBool;
     public string deathTrigger;
 
-    [Header("Life")]
+    [Header("Life/Death")]
     public List<FlashColor> flashColors;
     public HealthBase healthBase;
+    public GameObject loseScreen;
     public float timeToRevive;
+    public float durationLoseScreenAnimation;
+    public Ease easeLoseScreenAnimation;
 
     private void OnValidate()
     {
@@ -42,16 +46,32 @@ public class Player : MonoBehaviour
     {
         playerAnimator.SetTrigger(deathTrigger);
 
-        if (CheckPointManager.instance.HasCheckPoint()) Invoke(nameof(Revive), timeToRevive);
+        Invoke(nameof(ShowMenu), timeToRevive);
     }
 
-    private void Revive()
+    public void Revive()
     {
-        Respawn();
-        playerAnimator.SetTrigger(idleTrigger);
-        healthBase.ResetLife();
-        healthBase.colliders.ForEach(i => i.enabled = true);
+        if (CheckPointManager.instance.HasCheckPoint())
+        {
+            Respawn();
+            playerAnimator.SetTrigger(idleTrigger);
+            healthBase.ResetLife();
+            healthBase.colliders.ForEach(i => i.enabled = true);
+            HideMenu();
+        }
     }
+
+    #region MENU
+    private void ShowMenu()
+    {
+        loseScreen.transform.DOScale(1, durationLoseScreenAnimation).SetEase(easeLoseScreenAnimation);
+    }
+
+    private void HideMenu()
+    {
+        loseScreen.transform.DOScale(0, durationLoseScreenAnimation).SetEase(easeLoseScreenAnimation);
+    }
+    #endregion
 
     #region INTERFACE
     public void Damage(HealthBase h)
@@ -114,7 +134,7 @@ public class Player : MonoBehaviour
     }
     #endregion 
 
-    public void Respawn()
+    private void Respawn()
     {
         if (CheckPointManager.instance.HasCheckPoint())
         {
