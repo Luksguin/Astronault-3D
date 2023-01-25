@@ -7,19 +7,20 @@ public class HealthBase : MonoBehaviour, IDamageable
     public UIUpdater uiUpdater;
     public List<Collider> colliders;
     public float life;
-    //public float timeToDestroy;
+    public float timeToDestroy;
+    public bool destroy;
 
     public Action<HealthBase> onDamage;
     public Action<HealthBase> onKill;
 
-    private float _currentLife;
+    [SerializeField]private float _currentLife;
 
     private void Awake()
     {
         Init();
     }
 
-    public void Init()
+    private void Init()
     {
         ResetLife();
     }
@@ -32,7 +33,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     private void Kill()
     {
         colliders.ForEach(i => i.enabled = false);
-        //Destroy(gameObject, timeToDestroy);
+        if(destroy == true) Destroy(gameObject, timeToDestroy);
 
         onKill?.Invoke(this);
     }

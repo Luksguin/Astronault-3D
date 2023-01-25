@@ -54,6 +54,7 @@ namespace Boss
             stateMachine.Init();
 
             stateMachine.Register(BossAction.INIT, new BossStateInit());
+            stateMachine.Register(BossAction.IDLE, new BossStateIdle());
             stateMachine.Register(BossAction.WALK, new BossStateWalk());
             stateMachine.Register(BossAction.ATTACK, new BossStateAttack());
             stateMachine.Register(BossAction.DEATH, new BossStateDeath());
@@ -63,6 +64,13 @@ namespace Boss
         public void InitAnimation()
         {
             transform.DOScale(1, startAnimationDuration).SetEase(startAnimationEase);
+        }
+        #endregion
+
+        #region IDLE
+        public void RestartLife()
+        {
+            healthBase.ResetLife();
         }
         #endregion
 

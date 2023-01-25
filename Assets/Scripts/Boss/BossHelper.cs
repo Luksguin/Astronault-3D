@@ -46,7 +46,7 @@ namespace Boss
         {
             bossCamera.SetActive(false);
 
-            bossBase.ChangeState(BossAction.DEATH);
+            bossBase.ChangeState(BossAction.IDLE);
             meshRenderer.enabled = true;
         }
     }
