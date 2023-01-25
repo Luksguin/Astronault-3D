@@ -12523,7 +12523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2381537322947044514, guid: b2997fe6a3bd45b468ac8dddbb6d5bfb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2381537322947044514, guid: b2997fe6a3bd45b468ac8dddbb6d5bfb, type: 3}
       propertyPath: m_TagString
@@ -13349,6 +13349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   postProcess: {fileID: 1846824900}
+  duration: 0.4
 --- !u!4 &2093210166
 Transform:
   m_ObjectHideFlags: 0

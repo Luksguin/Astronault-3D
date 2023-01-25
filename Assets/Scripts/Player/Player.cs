@@ -77,6 +77,7 @@ public class Player : MonoBehaviour
     public void Damage(HealthBase h)
     {
         flashColors.ForEach(i => i.Flash());
+        PostProcessingManager.instance.ShowVignette();
     }
 
     public void DamageVector(int damage, Vector3 dir) { }
