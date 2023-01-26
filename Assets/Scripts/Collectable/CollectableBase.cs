@@ -7,7 +7,7 @@ namespace Collectable
     public class CollectableBase : MonoBehaviour
     {
         public string playerTag;
-        public ItenType itenType;
+        public CollectableType itenType;
 
         [Header("Animations")]
         public ParticleSystem systemParticle;

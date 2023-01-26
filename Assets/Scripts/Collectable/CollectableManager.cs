@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Ebac.Core.Singleton;
 
 namespace Collectable
 {
-    public enum ItenType
+    public enum CollectableType
     {
         COIN,
         MEDKIT
@@ -13,7 +14,7 @@ namespace Collectable
 
     public class CollectableManager : Singleton<CollectableManager>
     {
-        public List<ItenSetup> itenSetups;
+        public List<CollectableSetup> collectableSetups;
 
         private void Start()
         {
@@ -22,20 +23,20 @@ namespace Collectable
 
         private void Reset()
         {
-            foreach(var i in itenSetups)
+            foreach(var i in collectableSetups)
             {
                 i.soInt.value = 0;
             }
         }
 
-        public void AddByType(ItenType type, int amount = 1)
+        public void AddByType(CollectableType type, int amount = 1)
         {
-            itenSetups.Find(i => i.itenType == type).soInt.value += amount;
+            collectableSetups.Find(i => i.collectableType == type).soInt.value += amount;
         }
 
-        public void RemoveByType(ItenType type, int amount = 1)
+        public void RemoveByType(CollectableType type, int amount = 1)
         {
-            var iten = itenSetups.Find(i => i.itenType == type);
+            var iten = collectableSetups.Find(i => i.collectableType == type);
             iten.soInt.value -= amount;
 
             if (iten.soInt.value < 0) iten.soInt.value = 0;
@@ -69,9 +70,10 @@ namespace Collectable
     #endregion
 
     [System.Serializable]
-    public class ItenSetup
+    public class CollectableSetup
     {
-        public ItenType itenType;
+        public CollectableType collectableType;
         public SOInt soInt;
+        public Sprite iconImage;
     }
 }
