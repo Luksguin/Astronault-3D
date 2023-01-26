@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectableCoin : CollectableBase
+namespace Collectable
 {
-    protected override void OnCollect()
+    public class CollectableCoin : CollectableBase
     {
-        base.OnCollect();
-        CollectableManager.instance.AddCoins();
+        protected override void OnCollect()
+        {
+            base.OnCollect();
+            //CollectableManager.instance.AddByType();
+        }
     }
 }

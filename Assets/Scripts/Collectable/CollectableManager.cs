@@ -1,28 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using Ebac.Core.Singleton;
 
-public class CollectableManager : Singleton<CollectableManager>
+namespace Collectable
 {
-    public SOInt currentCoins;
-    public SOInt specialCoins;
-    public TextMeshProUGUI coinAmount;
-
-    private void Start()
+    public enum ItenType
     {
-        Reset();
+        COIN,
+        MEDKIT
     }
 
-    private void Reset()
+    public class CollectableManager : Singleton<CollectableManager>
     {
-        currentCoins.value = 0;
-    }
+        public List<ItenSetup> itenSetups;
 
-    public void AddCoins(int amount = 1)
+        private void Start()
+        {
+            Reset();
+        }
+
+        private void Reset()
+        {
+            foreach(var i in itenSetups)
+            {
+                i.soInt.value = 0;
+            }
+        }
+
+        public void AddByType(ItenType type, int amount = 1)
+        {
+            itenSetups.Find(i => i.itenType == type).soInt.value += amount;
+        }
+
+        public void RemoveByType(ItenType type, int amount = 1)
+        {
+            var iten = itenSetups.Find(i => i.itenType == type);
+            iten.soInt.value -= amount;
+
+            if (iten.soInt.value < 0) iten.soInt.value = 0;
+        }
+
+        #region DEBUG
+        //[NaughtyAttributes.Button]
+        //public void AddCoin()
+        //{
+        //    AddByType(ItenType.COIN);
+        //}
+
+        //[NaughtyAttributes.Button]
+        //public void RemoveCoin()
+        //{
+        //    RemoveByType(ItenType.COIN);
+        //}
+
+        //[NaughtyAttributes.Button]
+        //public void AddMedkit()
+        //{
+        //    AddByType(ItenType.MEDKIT);
+        //}
+
+        //[NaughtyAttributes.Button]
+        //public void RemoveMedkit()
+        //{
+        //    RemoveByType(ItenType.MEDKIT);
+        //}
+    }
+    #endregion
+
+    [System.Serializable]
+    public class ItenSetup
     {
-        //coinAmount.text = currentCoins.value.ToString();
-        currentCoins.value += amount;
+        public ItenType itenType;
+        public SOInt soInt;
     }
 }

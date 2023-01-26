@@ -2,42 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectableBase : MonoBehaviour
+namespace Collectable
 {
-    public string playerTag;
-    public ParticleSystem systemParticle;
-
-    [Header("Animations")]
-    public Animator animator;
-    public string setTrigger;
-    public float destroyTime;
-
-    [Header("Sounds")]
-    public AudioSource audioClip;
-
-    private void Awake()
+    public class CollectableBase : MonoBehaviour
     {
-        if(systemParticle != null) systemParticle.transform.SetParent(null);
-    }
+        public string playerTag;
+        public ItenType itenType;
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if(playerTag != null)
+        [Header("Animations")]
+        public ParticleSystem systemParticle;
+        public Animator animator;
+        public string setTrigger;
+        
+        [Header("Sounds")]
+        public AudioSource audioClip;
+
+        private void Awake()
         {
-            Collect();
+            if(systemParticle != null) systemParticle.transform.SetParent(null);
         }
-    }
 
-    protected virtual void Collect()
-    {
-        OnCollect();
-        animator.SetTrigger(setTrigger);
-        Destroy(gameObject, destroyTime);
-    }
+        private void OnTriggerEnter(Collider collision)
+        {
+            if(collision.transform.tag == playerTag)
+            {
+                Collect();
+            }
+        }
 
-    protected virtual void OnCollect()
-    {
-        if (systemParticle != null) systemParticle.Play();
-        if (audioClip != null) audioClip.Play();
+        protected virtual void Collect()
+        {
+            OnCollect();
+        }
+
+        protected virtual void OnCollect()
+        {
+            if (systemParticle != null) systemParticle.Play();
+            if (audioClip != null) audioClip.Play();
+            if(animator != null) animator.SetTrigger(setTrigger);
+            CollectableManager.instance.AddByType(itenType);
+            Destroy(gameObject);
+        }
     }
 }
