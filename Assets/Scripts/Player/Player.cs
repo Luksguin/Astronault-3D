@@ -21,8 +21,9 @@ public class Player : MonoBehaviour
     public string jumpBool;
     public string deathTrigger;
 
-    [Header("Life/Death")]
+    [Header("Damage")]
     public List<FlashColor> flashColors;
+    public List<ShakeBase> shake;
     public HealthBase healthBase;
     public GameObject loseScreen;
     public float timeToRevive;
@@ -78,6 +79,7 @@ public class Player : MonoBehaviour
     {
         flashColors.ForEach(i => i.Flash());
         PostProcessingManager.instance.ShowVignette();
+        shake.ForEach(i => i.StartShake());
     }
 
     public void DamageVector(int damage, Vector3 dir) { }

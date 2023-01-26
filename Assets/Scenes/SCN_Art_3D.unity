@@ -934,6 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 145331532}
   - component: {fileID: 145331533}
+  - component: {fileID: 145331534}
   m_Layer: 0
   m_Name: Boss_CAM
   m_TagString: Untagged
@@ -991,6 +992,23 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1694821327}
+--- !u!114 &145331534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145331531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44e1ab1f97d67b4c98f7af42aef766e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachine: {fileID: 145331533}
+  amplitude: 3
+  intensify: 2
+  duration: 0.2
+  shakeTime: 0
 --- !u!1 &160361696
 GameObject:
   m_ObjectHideFlags: 0
@@ -3943,6 +3961,7 @@ GameObject:
   - component: {fileID: 696120186}
   - component: {fileID: 696120185}
   - component: {fileID: 696120184}
+  - component: {fileID: 696120187}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -4025,6 +4044,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &696120187
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696120182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1001 &704143144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4467,6 +4503,7 @@ GameObject:
   - component: {fileID: 768768940}
   - component: {fileID: 768768939}
   - component: {fileID: 768768938}
+  - component: {fileID: 768768941}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -4549,6 +4586,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &768768941
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768768936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1001 &803173142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6644,6 +6698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1079309712}
   - component: {fileID: 1079309713}
+  - component: {fileID: 1079309714}
   m_Layer: 0
   m_Name: Jump_CAM
   m_TagString: Untagged
@@ -6701,6 +6756,23 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 696120183}
+--- !u!114 &1079309714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079309711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44e1ab1f97d67b4c98f7af42aef766e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachine: {fileID: 1079309713}
+  amplitude: 1.5
+  intensify: 1
+  duration: 0.2
+  shakeTime: 0
 --- !u!1 &1087207158
 GameObject:
   m_ObjectHideFlags: 3
@@ -6810,9 +6882,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 1
-  m_FrequencyGain: 1
-  mNoiseOffsets: {x: -926.0437, y: 852.87714, z: 7.5823364}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1091898590
 GameObject:
   m_ObjectHideFlags: 0
@@ -6824,7 +6896,7 @@ GameObject:
   - component: {fileID: 1091898591}
   - component: {fileID: 1091898592}
   m_Layer: 0
-  m_Name: Death_Cam
+  m_Name: Death_CAM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7439,7 +7511,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179709625}
-  m_LocalRotation: {x: 0.0591533, y: 0.07518616, z: -0.004468047, w: 0.99540347}
+  m_LocalRotation: {x: 0.059153266, y: 0.07518616, z: -0.0044680443, w: 0.99540347}
   m_LocalPosition: {x: 0.23727417, y: -4.0223217, z: -14.876787}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7460,11 +7532,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cinemachine: {fileID: 1179709626}
-  amplitude: 3
-  frequency: 3
-  duration: 0.3
+  amplitude: 1.5
+  intensify: 1
+  duration: 0.2
   shakeTime: 0
-  c: {fileID: 0}
 --- !u!1001 &1196220682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9423,7 +9494,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.005778778, y: 0.9686514, z: -0.022632804, w: 0.24732341}
+  m_LocalRotation: {x: 0.0057787714, y: 0.9686514, z: -0.02263278, w: 0.24732338}
   m_LocalPosition: {x: 409.25275, y: -5.0176783, z: 21.186789}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -10714,6 +10785,7 @@ GameObject:
   - component: {fileID: 1694821330}
   - component: {fileID: 1694821329}
   - component: {fileID: 1694821328}
+  - component: {fileID: 1694821331}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -10796,6 +10868,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1694821331
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694821326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!65 &1701766143 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 5933525562971082989, guid: e32b6d47abcff3e449c8f170cf3b83d0, type: 3}
@@ -13176,6 +13265,11 @@ MonoBehaviour:
   - {fileID: 713754419}
   - {fileID: 29181989}
   - {fileID: 1856670465}
+  shake:
+  - {fileID: 1179709628}
+  - {fileID: 2136984473}
+  - {fileID: 1079309714}
+  - {fileID: 145331534}
   healthBase: {fileID: 1934283284}
   loseScreen: {fileID: 973438549}
   timeToRevive: 3
@@ -13498,7 +13592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2381537322947044514, guid: b2997fe6a3bd45b468ac8dddbb6d5bfb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2381537322947044514, guid: b2997fe6a3bd45b468ac8dddbb6d5bfb, type: 3}
       propertyPath: m_TagString
@@ -13510,7 +13604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2381537322947044527, guid: b2997fe6a3bd45b468ac8dddbb6d5bfb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.58966
+      value: 29.42
       objectReference: {fileID: 0}
     - target: {fileID: 2381537322947044527, guid: b2997fe6a3bd45b468ac8dddbb6d5bfb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13518,7 +13612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2381537322947044527, guid: b2997fe6a3bd45b468ac8dddbb6d5bfb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.99028
+      value: 26.43
       objectReference: {fileID: 0}
     - target: {fileID: 2381537322947044527, guid: b2997fe6a3bd45b468ac8dddbb6d5bfb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14794,6 +14888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2136984471}
   - component: {fileID: 2136984472}
+  - component: {fileID: 2136984473}
   m_Layer: 0
   m_Name: Idle_Cam
   m_TagString: Untagged
@@ -14808,7 +14903,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136984470}
-  m_LocalRotation: {x: 0.005778778, y: 0.9686514, z: -0.022632804, w: 0.24732341}
+  m_LocalRotation: {x: 0.0057787714, y: 0.9686514, z: -0.02263278, w: 0.24732338}
   m_LocalPosition: {x: -0.70999146, y: -7.41, z: 3.5900002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14851,6 +14946,23 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 768768937}
+--- !u!114 &2136984473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136984470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44e1ab1f97d67b4c98f7af42aef766e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachine: {fileID: 2136984472}
+  amplitude: 1.5
+  intensify: 1
+  duration: 0.2
+  shakeTime: 0
 --- !u!1 &2138985199
 GameObject:
   m_ObjectHideFlags: 0

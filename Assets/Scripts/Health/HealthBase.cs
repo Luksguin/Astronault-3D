@@ -20,7 +20,7 @@ public class HealthBase : MonoBehaviour, IDamageable
         Init();
     }
 
-    private void Init()
+    public void Init()
     {
         ResetLife();
     }
