@@ -29,6 +29,11 @@ namespace Collectable
             }
         }
 
+        public CollectableSetup GetType(CollectableType type)
+        {
+            return collectableSetups.Find(i => i.collectableType == type);
+        }
+
         public void AddByType(CollectableType type, int amount = 1)
         {
             collectableSetups.Find(i => i.collectableType == type).soInt.value += amount;

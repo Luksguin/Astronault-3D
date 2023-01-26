@@ -28,6 +28,8 @@ public class HealthBase : MonoBehaviour, IDamageable
     public void ResetLife()
     {
         _currentLife = life;
+        if (uiUpdater != null)
+            uiUpdater.UpdateImage((float)_currentLife / life);
     }
 
     private void Kill()

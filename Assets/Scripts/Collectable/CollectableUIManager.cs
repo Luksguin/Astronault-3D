@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Collectable
 {
-    public class CollectabelUIManager : MonoBehaviour
+    public class CollectableUIManager : MonoBehaviour
     {
         public CollectableUIBase collectableContainer;
         public Transform container;
