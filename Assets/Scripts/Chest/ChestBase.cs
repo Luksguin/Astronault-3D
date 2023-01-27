@@ -5,8 +5,9 @@ using DG.Tweening;
 
 public class ChestBase : MonoBehaviour
 {
+    public ChestItemBase item;
     public Animator animator;
-    public GameObject openIcon;
+    public GameObject icon;
     public KeyCode openChest;
     public string playerTag;
     public string openTrigger;
@@ -38,19 +39,27 @@ public class ChestBase : MonoBehaviour
         {
             _isOpen = true;
             animator.SetTrigger(openTrigger);
+            //Invoke(nameof(ShowItem), 1f);
+            ShowItem();
             HideIcon();
         }
     }
-        public void ShowIcon()
+
+    public void ShowItem()
+    {
+        item.ShowItem();
+    }
+
+    public void ShowIcon()
     {
         _showIcon = true;
-        openIcon.transform.DOScale(1, iconAnimationduration).SetEase(iconEase);
+        icon.transform.DOScale(1, iconAnimationduration).SetEase(iconEase);
     }
 
     public void HideIcon()
     {
         _showIcon = false;
-        openIcon.transform.DOScale(0, iconAnimationduration).SetEase(iconEase);
+        icon.transform.DOScale(0, iconAnimationduration).SetEase(iconEase);
     }
 
     private void Update()
