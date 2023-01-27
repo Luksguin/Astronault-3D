@@ -16,7 +16,6 @@ public class CheckPointBase : MonoBehaviour
 
     public int key;
 
-    //private string _keyString = "CheckPointKey";
     private bool _isCheck = false;
 
     private void OnTriggerEnter(Collider other)
@@ -48,10 +47,6 @@ public class CheckPointBase : MonoBehaviour
 
     private void SaveCheckPoint()
     {
-        /*if(PlayerPrefs.GetInt("CheckPointKey", 0) > key)
-        {
-            PlayerPrefs.SetInt("CheckPointKey", key);
-        }*/
 
         _isCheck = true;
 

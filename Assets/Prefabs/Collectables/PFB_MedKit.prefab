@@ -58,11 +58,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745ccfbcb701b034ba3f25f55aac3aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTag: Player
   itenType: 1
-  systemParticle: {fileID: 0}
+  myCollider: {fileID: 6902055644447877846}
+  meshRenderer: {fileID: 8761642356312043597}
+  playerTag: Player
+  timeToDestroy: 5
   animator: {fileID: 0}
   setTrigger: 
+  message: {fileID: 2699300358764379214, guid: 95b4dfc62a2b3584fb6f11c308424a72, type: 3}
+  messageDuration: 2
+  messageAnimationDuration: 0.2
+  messageEase: 1
+  systemParticle: {fileID: 0}
   audioClip: {fileID: 0}
 --- !u!1 &7104260451010171288
 GameObject:
