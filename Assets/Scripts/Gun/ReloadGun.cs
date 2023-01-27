@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ReloadGun : GunBase
 {
-    public List<UIUpdater> uIGuns;
+    public List<UIUpdater> uiGuns;
 
     public int maxAmount;
     public float timeOfReload;
@@ -36,7 +36,7 @@ public class ReloadGun : GunBase
             _currentAmount++;
             CheckReload();
             _shootTime = Time.time;
-            UpdateUI();
+            if(isPlayer) UpdateUI();
             yield return new WaitForSeconds(timeBetweenShoot);
         }
     }
@@ -66,7 +66,7 @@ public class ReloadGun : GunBase
         while (time <= timeOfReload)
         {
             time += Time.deltaTime;
-            uIGuns.ForEach(i => i.UpdateImage(time/timeOfReload));
+            if(isPlayer) uiGuns.ForEach(i => i.UpdateImage(time/timeOfReload));
             yield return new WaitForEndOfFrame();
         }
 
@@ -76,11 +76,30 @@ public class ReloadGun : GunBase
 
     public void UpdateUI()
     {
-        uIGuns.ForEach(i => i.UpdateValue(maxAmount, _currentAmount));
+        uiGuns.ForEach(i => i.UpdateValue(maxAmount, _currentAmount));
     }
 
     public void GetAllUIs()
     {
-        if(isPlayer) uIGuns = GameObject.FindObjectsOfType<UIUpdater>().ToList();
+        uiGuns = GameObject.FindObjectsOfType<UIUpdater>().ToList();
+        if (isPlayer)
+        {
+           /*foreach(var i in uiGuns)
+           {
+                if(i.uiType != UIUpdater.UIType.GUN)
+                {
+                    uiGuns.Remove(i);
+                    Debug.Log(uiGuns.Count);
+                }
+           }*/
+
+            for(int i = uiGuns.Count - 1; i >= 0; i--)
+            {
+                if(uiGuns[i].uiType != UIUpdater.UIType.GUN)
+                {
+                    uiGuns.RemoveAt(i);
+                }
+            }
+        }
     }
 }

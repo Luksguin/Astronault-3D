@@ -6,6 +6,13 @@ using DG.Tweening;
 
 public class UIUpdater : MonoBehaviour
 {
+    public enum UIType
+    { 
+        LIFE,
+        GUN
+    }
+
+    public UIType uiType;
     public Image image;
     public float duration;
     public Ease ease;

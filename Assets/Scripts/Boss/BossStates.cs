@@ -21,6 +21,7 @@ namespace Boss
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
+            if (boss == null) return;
             boss.InitAnimation();
             boss.ChangeState(BossAction.WALK);
         }
@@ -31,6 +32,7 @@ namespace Boss
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
+            if (boss == null) return;
             boss.RestartLife();
         }
     }
@@ -40,6 +42,7 @@ namespace Boss
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
+            if (boss == null) return;
             boss.RandomWalk(OnArrive);
             boss.WalkAnimation();
         }
@@ -61,6 +64,7 @@ namespace Boss
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
+            if (boss == null) return;
             boss.Attack(EndAttack);
             boss.BossShoot();
         }
@@ -81,6 +85,7 @@ namespace Boss
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
+            if (boss == null) return;
             boss.KillAnimation();
         }
     }
