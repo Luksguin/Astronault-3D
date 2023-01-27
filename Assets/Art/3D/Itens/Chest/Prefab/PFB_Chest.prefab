@@ -82,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 638719455}
   openIcon: {fileID: 8166859789002934539}
+  openChest: 122
   playerTag: Player
   openTrigger: Open
   iconAnimationduration: 0.4

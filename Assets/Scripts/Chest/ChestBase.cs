@@ -7,14 +7,18 @@ public class ChestBase : MonoBehaviour
 {
     public Animator animator;
     public GameObject openIcon;
+    public KeyCode openChest;
     public string playerTag;
     public string openTrigger;
     public float iconAnimationduration;
     public Ease iconEase;
 
+    private bool _showIcon = false;
+    private bool _isOpen = false;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == playerTag)
+        if (other.transform.tag == playerTag && _isOpen == false)
         {
             ShowIcon();
         }    
@@ -30,18 +34,30 @@ public class ChestBase : MonoBehaviour
 
     public void OpenChest()
     {
-        animator.SetTrigger(openTrigger);
+        if (_showIcon == true)
+        {
+            _isOpen = true;
+            animator.SetTrigger(openTrigger);
+            HideIcon();
+        }
     }
-
-    [NaughtyAttributes.Button]
-    public void ShowIcon()
+        public void ShowIcon()
     {
+        _showIcon = true;
         openIcon.transform.DOScale(1, iconAnimationduration).SetEase(iconEase);
     }
 
-    [NaughtyAttributes.Button]
     public void HideIcon()
     {
+        _showIcon = false;
         openIcon.transform.DOScale(0, iconAnimationduration).SetEase(iconEase);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(openChest))
+        {
+            OpenChest();
+        }
     }
 }
