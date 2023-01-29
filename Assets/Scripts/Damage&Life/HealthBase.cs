@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class HealthBase : MonoBehaviour, IDamageable
 {
@@ -12,6 +13,11 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     public Action<HealthBase> onDamage;
     public Action<HealthBase> onKill;
+
+    [Header("Animation")]
+    public float duration;
+    public Ease ease;
+    public bool destroyAnimation = false;
 
     [SerializeField]private float _currentLife;
 
@@ -35,6 +41,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     private void Kill()
     {
         colliders.ForEach(i => i.enabled = false);
+        if(destroyAnimation == true) transform.DOScale(0, duration).SetEase(ease);
         if(destroy == true) Destroy(gameObject, timeToDestroy);
 
         onKill?.Invoke(this);
