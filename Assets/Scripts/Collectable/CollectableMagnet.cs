@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class CollectableMagnet : MonoBehaviour
 {
-    private float timeCoin = 1f;
+    private float timeCoin = .5f;
 
     private void Start()
     {
