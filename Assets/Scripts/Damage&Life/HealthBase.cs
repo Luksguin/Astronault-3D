@@ -14,7 +14,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     public Action<HealthBase> onDamage;
     public Action<HealthBase> onKill;
 
-    [Header("Animation")]
+    [Header("DeathAnimation")]
     public float duration;
     public Ease ease;
     public bool destroyAnimation = false;
