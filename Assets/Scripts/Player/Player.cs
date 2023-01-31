@@ -15,14 +15,17 @@ public class Player : Singleton<Player>
     public float spinSpeed;
     public float gravity;
 
-    private float _vGravity;
+    [SerializeField] private float _vGravity;
 
     [Header("Animator")]
     public Animator playerAnimator;
     public string idleTrigger;
     public string runBool;
-    public string jumpBool;
+    public string jumpTrigger;
+    public string endJumpTrigger;
     public string deathTrigger;
+
+    [SerializeField] private bool _jumping = false;
 
     [Header("Damage")]
     public List<FlashColor> flashColors;
@@ -96,7 +99,7 @@ public class Player : Singleton<Player>
     #region MOVIMENTS
     private void Run()
     {
-        if (characterController.enabled == false) return;
+        //if (characterController.enabled == false) return;
 
         transform.Rotate(0, Input.GetAxis("Horizontal") * spinSpeed * Time.deltaTime, 0);
 
@@ -122,36 +125,34 @@ public class Player : Singleton<Player>
 
     private void Jump()
     {
-        if (characterController.enabled == false) return;
+        //if (characterController.enabled == false) return;
 
         if (characterController.isGrounded)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _vGravity = jumpForce;
-                playerAnimator.SetBool(jumpBool, true);
+                playerAnimator.SetTrigger(jumpTrigger);
+                _jumping = true;
             }
-            else
+
+            if (_vGravity < 0 && _jumping == true)
             {
-                playerAnimator.SetBool(jumpBool, false);
+                playerAnimator.SetTrigger(endJumpTrigger);
+                playerAnimator.SetTrigger(idleTrigger);
+                _jumping = false;
             }
         }
     }
 
     void Update()
     {
+        if (characterController.enabled == false) return;
+
         Run();
         Jump();
     }
     #endregion 
-
-    private void Respawn()
-    {
-        if (CheckPointManager.instance.HasCheckPoint())
-        {
-            transform.position = CheckPointManager.instance.GetPosition();
-        }
-    }
 
     #region ARMOR
     public void UpdateArmor(ArmorSetup setup, float duration)
@@ -181,4 +182,12 @@ public class Player : Singleton<Player>
         speed = startSpeed;
     }
     #endregion
+
+    private void Respawn()
+    {
+        if (CheckPointManager.instance.HasCheckPoint())
+        {
+            transform.position = CheckPointManager.instance.GetPosition();
+        }
+    }
 }
