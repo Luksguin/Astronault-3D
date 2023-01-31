@@ -369,12 +369,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34900101}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 929708464}
-  m_Father: {fileID: 1981265281}
+  m_Father: {fileID: 1755906816}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &40585165
@@ -2394,6 +2394,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8043139984699745673, guid: 6a85956ddea0a304da62a369edd2c2fa, type: 3}
   m_PrefabInstance: {fileID: 288409840}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &295591795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 295591796}
+  - component: {fileID: 295591797}
+  m_Layer: 0
+  m_Name: ArmorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &295591796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295591795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1981265281}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &295591797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295591795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1cdacf03133a04899c40c4c68a28a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorSetups:
+  - armorType: 0
+    texture: {fileID: 2800000, guid: a47729be371e1a645a6797acbb723a37, type: 3}
+  - armorType: 1
+    texture: {fileID: 0}
 --- !u!1001 &320308170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10852,7 +10900,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.0057787816, y: 0.9686514, z: -0.022632819, w: 0.24732338}
+  m_LocalRotation: {x: 0.005778778, y: 0.9686514, z: -0.022632804, w: 0.24732341}
   m_LocalPosition: {x: 409.25275, y: -5.0176783, z: 13.396788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -12892,6 +12940,7 @@ Transform:
   - {fileID: 1396856148}
   - {fileID: 651051267}
   - {fileID: 1678241265}
+  - {fileID: 34900102}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14964,7 +15013,7 @@ MonoBehaviour:
   - {fileID: 29181990}
   - {fileID: 450871631}
   - {fileID: 939012558}
-  texture: {fileID: 2800000, guid: a47729be371e1a645a6797acbb723a37, type: 3}
+  texture: {fileID: 2800000, guid: 77aa9045e2157024db0981a7d7196aa7, type: 3}
   textureId: _EmissionMap
 --- !u!114 &1935774829 stripped
 MonoBehaviour:
@@ -15199,7 +15248,7 @@ Transform:
   - {fileID: 1818263513}
   - {fileID: 2093210166}
   - {fileID: 909856318}
-  - {fileID: 34900102}
+  - {fileID: 295591796}
   m_Father: {fileID: 1755906816}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16696,7 +16745,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136984470}
-  m_LocalRotation: {x: 0.0057787816, y: 0.9686514, z: -0.022632819, w: 0.24732338}
+  m_LocalRotation: {x: 0.005778778, y: 0.9686514, z: -0.022632804, w: 0.24732341}
   m_LocalPosition: {x: -0.70999146, y: -7.41, z: -4.200001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
