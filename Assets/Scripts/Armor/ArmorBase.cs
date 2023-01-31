@@ -11,14 +11,22 @@ namespace Armor
         public MeshRenderer meshRenderer;
         public string playerTag;
         public float duration;
-        public float timeToDestroy;
+
+        [SerializeField] private bool _hasArmor = false;
 
         private void OnTriggerEnter(Collider collision)
         {
-            if (collision.transform.tag == playerTag)
+            if (collision.transform.tag == playerTag && _hasArmor == false)
             {
+                _hasArmor = true;
                 Collect();
+                Invoke(nameof(RemoveArmor), duration);
             }
+        }
+
+        public void RemoveArmor()
+        {
+            _hasArmor = false;
         }
 
         protected virtual void Collect()
@@ -33,7 +41,7 @@ namespace Armor
         {
             Destroy(myCollider);
             Destroy(meshRenderer);
-            Destroy(gameObject, timeToDestroy);
+            Destroy(gameObject, duration);
         }
     }
 }
