@@ -52,6 +52,11 @@ namespace Collectable
             if(animator != null) animator.SetTrigger(setTrigger);
             StartCoroutine(ShowMessage());
             CollectableManager.instance.AddByType(itenType);
+            DestroyObject();
+        }
+
+        public void DestroyObject()
+        {
             Destroy(myCollider);
             Destroy(meshRenderer);
             Destroy(gameObject, timeToDestroy);

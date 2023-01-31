@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Ebac.Core.Singleton;
+using Armor;
 
 public class Player : Singleton<Player>
 {
     [Header("Moviments")]
     public CharacterController characterController;
     public float speed;
+    public float speedRunnig;
     public float jumpForce;
     public float spinSpeed;
     public float gravity;
@@ -30,6 +32,9 @@ public class Player : Singleton<Player>
     public float timeToRevive;
     public float durationLoseScreenAnimation;
     public Ease easeLoseScreenAnimation;
+
+    [Header("Armor")]
+    public ArmorPlayer armorPlayer;
 
     private void OnValidate()
     {
@@ -95,8 +100,8 @@ public class Player : Singleton<Player>
 
         transform.Rotate(0, Input.GetAxis("Horizontal") * spinSpeed * Time.deltaTime, 0);
 
-        if (Input.GetKeyDown(KeyCode.LeftShift)) speed *= 2;
-        if (Input.GetKeyUp(KeyCode.LeftShift)) speed /= 2;
+        if (Input.GetKeyDown(KeyCode.LeftShift)) speed *= speedRunnig;
+        if (Input.GetKeyUp(KeyCode.LeftShift)) speed /= speedRunnig;
         
         var InputVertical = Input.GetAxis("Vertical");
         var run = transform.forward * InputVertical * speed;
@@ -147,4 +152,31 @@ public class Player : Singleton<Player>
             transform.position = CheckPointManager.instance.GetPosition();
         }
     }
+
+    #region ARMOR
+    public void UpSpeed(float speed, float duration)
+    {
+        StartCoroutine(UpSpeedCoroutine(speed, duration));
+    }
+
+    IEnumerator UpSpeedCoroutine(float newSpeed, float duration)
+    {
+        var startSpeed = speed;
+        speed = newSpeed;
+        yield return new WaitForSeconds(duration);
+        speed = startSpeed;
+    }
+
+    public void UpdateArmor(ArmorSetup setup, float duration)
+    {
+        StartCoroutine(UpdateArmorCoroutine(setup, duration));
+    }
+
+    IEnumerator UpdateArmorCoroutine(ArmorSetup setup, float duration)
+    {
+        armorPlayer.ChangeArmor(setup);
+        yield return new WaitForSeconds(duration);
+        armorPlayer.ResetArmor();
+    }
+    #endregion
 }

@@ -2,15 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmorPlayer : MonoBehaviour
+namespace Armor
 {
-    public List<SkinnedMeshRenderer> meshRenderers;
-    public Texture texture;
-    public string textureId;
-
-    [NaughtyAttributes.Button]
-    public void ChangeArmor()
+    public class ArmorPlayer : MonoBehaviour
     {
-        meshRenderers.ForEach(i => i.materials[0].SetTexture(textureId, texture));
+        public List<SkinnedMeshRenderer> meshRenderers;
+        public Texture texture;
+        public string textureId;
+
+        private Texture _defaultTexture;
+
+        private void Awake()
+        {
+            _defaultTexture = meshRenderers[0].materials[0].GetTexture(textureId);
+        }
+
+        public void ChangeArmor(ArmorSetup setup)
+        {
+            meshRenderers.ForEach(i => i.materials[0].SetTexture(textureId, setup.texture));
+        }
+
+        public void ResetArmor()
+        {
+            meshRenderers.ForEach(i => i.materials[0].SetTexture(textureId, _defaultTexture));
+        }
     }
 }
