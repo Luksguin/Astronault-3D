@@ -8,7 +8,8 @@ namespace Armor
     public enum ArmorType
     {
         SPEED,
-        FORCE
+        RESISTANCE,
+        COSMESTIC
     }
 
     public class ArmorManager : Singleton<ArmorManager>

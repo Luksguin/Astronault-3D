@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -31,12 +32,27 @@ public class HealthBase : MonoBehaviour, IDamageable
         ResetLife();
     }
 
+    #region PLAYER
     public void ResetLife()
     {
         _currentLife = life;
         if (uiUpdater != null)
             uiUpdater.UpdateImage((float)_currentLife / life);
     }
+
+    public void StartShield(float duration)
+    {
+        StartCoroutine(ShieldCoroutine(duration));
+    }
+
+    IEnumerator ShieldCoroutine(float duration)
+    {
+        var normalLife = _currentLife;
+        _currentLife = 100;
+        yield return new WaitForSeconds(duration);
+        _currentLife = normalLife;
+    }
+    #endregion
 
     private void Kill()
     {

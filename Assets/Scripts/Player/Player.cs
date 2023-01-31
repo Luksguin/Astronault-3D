@@ -154,19 +154,6 @@ public class Player : Singleton<Player>
     }
 
     #region ARMOR
-    public void UpSpeed(float speed, float duration)
-    {
-        StartCoroutine(UpSpeedCoroutine(speed, duration));
-    }
-
-    IEnumerator UpSpeedCoroutine(float newSpeed, float duration)
-    {
-        var startSpeed = speed;
-        speed = newSpeed;
-        yield return new WaitForSeconds(duration);
-        speed = startSpeed;
-    }
-
     public void UpdateArmor(ArmorSetup setup, float duration)
     {
         StartCoroutine(UpdateArmorCoroutine(setup, duration));
@@ -177,6 +164,21 @@ public class Player : Singleton<Player>
         armorPlayer.ChangeArmor(setup);
         yield return new WaitForSeconds(duration);
         armorPlayer.ResetArmor();
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+
+    public void UpdateSpeed(float speed, float duration)
+    {
+        StartCoroutine(UpdateSpeedCoroutine(speed, duration));
+    }
+
+    IEnumerator UpdateSpeedCoroutine(float newSpeed, float duration)
+    {
+        var startSpeed = speed;
+        speed = newSpeed;
+        yield return new WaitForSeconds(duration);
+        speed = startSpeed;
     }
     #endregion
 }

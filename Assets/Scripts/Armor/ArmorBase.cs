@@ -9,8 +9,9 @@ namespace Armor
         public ArmorType armorType;
         public Collider myCollider;
         public MeshRenderer meshRenderer;
-        public float timeToDestroy;
         public string playerTag;
+        public float duration;
+        public float timeToDestroy;
 
         private void OnTriggerEnter(Collider collision)
         {
@@ -22,6 +23,9 @@ namespace Armor
 
         protected virtual void Collect()
         {
+            var setup = ArmorManager.instance.GetByType(armorType);
+            Player.instance.UpdateArmor(setup, duration);
+
             DestroyObject();
         }
 
