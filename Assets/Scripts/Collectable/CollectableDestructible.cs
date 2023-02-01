@@ -9,6 +9,7 @@ public class CollectableDestructible : MonoBehaviour
     public GameObject coinPrefab;
     public Transform coinPosition;
     public int coinAmount;
+    public float timeBetweenCoins;
 
     [Header("Animation")]
     public float shakeForce;
@@ -33,18 +34,18 @@ public class CollectableDestructible : MonoBehaviour
     public void OnDamage(HealthBase h)
     {
         transform.DOScaleY(shakeForce, shakeDuration).SetEase(shakeEase).SetLoops(2, LoopType.Yoyo);
-        StartCoroutine(SpawnCoins());
+        StartCoroutine(SpawnCoinsCoroutine());
     }
 
-    IEnumerator SpawnCoins()
+    IEnumerator SpawnCoinsCoroutine()
     {
         for(int i = 0; i < coinAmount; i++)
         {
             var coin = Instantiate(coinPrefab, coinPosition);
-            coin.transform.position = coinPosition.position;
+            //coin.transform.position = coinPosition.position;
             coin.transform.parent = null;
             coin.transform.DOScale(0, durationCoinAnimation).SetEase(easeCoin).From();
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(timeBetweenCoins);
         }
     }
 }

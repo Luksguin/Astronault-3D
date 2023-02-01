@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectilleBase : MonoBehaviour
+public class ProjectileBase : MonoBehaviour
 {
     public List<string> tags;
     public int damageAmount;
@@ -33,6 +33,7 @@ public class ProjectilleBase : MonoBehaviour
                     Destroy(gameObject);
                 }
 
+                Destroy(gameObject);
                 break;
             }
         }

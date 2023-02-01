@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GunBase : MonoBehaviour
 {
-    public ProjectilleBase projectillePrefab;
+    public ProjectileBase projectillePrefab;
     public Transform positionShoot;
     public float timeBetweenShoot;
 

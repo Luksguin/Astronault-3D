@@ -5,17 +5,17 @@ using DG.Tweening;
 
 public class GunRocket : ReloadGun
 {
-    public ProjectilleBase projectilleBase;
+    public ProjectileBase projectilleBase;
     public float size;
 
     public override void Shoot()
     {
-        var projectille = Instantiate(projectillePrefab, positionShoot);
-        projectille.transform.localScale = Vector3.zero;
+        var projectile = Instantiate(projectillePrefab, positionShoot);
+        projectile.transform.localScale = Vector3.zero;
 
-        projectille.transform.DOScale(size, projectilleBase.timeToDestroy);
+        projectile.transform.DOScale(size, projectilleBase.timeToDestroy);
 
-        projectille.transform.position = positionShoot.transform.position;
-        projectille.transform.parent = null;
+        projectile.transform.position = positionShoot.transform.position;
+        projectile.transform.parent = null;
     }
 }
