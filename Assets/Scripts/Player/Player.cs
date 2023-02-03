@@ -31,7 +31,7 @@ public class Player : Singleton<Player>
     public List<FlashColor> flashColors;
     public List<ShakeBase> shake;
     public HealthBase healthBase;
-    public GameObject loseScreen;
+    public GameObject loseMenu;
     public float timeToRevive;
     public float durationLoseScreenAnimation;
     public Ease easeLoseScreenAnimation;
@@ -47,6 +47,8 @@ public class Player : Singleton<Player>
     protected override void Awake()
     {
         base.Awake();
+
+        loseMenu.SetActive(false);
 
         OnValidate();
 
@@ -76,12 +78,14 @@ public class Player : Singleton<Player>
     #region MENU
     private void ShowMenu()
     {
-        loseScreen.transform.DOScale(1, durationLoseScreenAnimation).SetEase(easeLoseScreenAnimation);
+        loseMenu.SetActive(true);
+        loseMenu.transform.DOScale(0, durationLoseScreenAnimation).SetEase(easeLoseScreenAnimation).From();
     }
 
     private void HideMenu()
     {
-        loseScreen.transform.DOScale(0, durationLoseScreenAnimation).SetEase(easeLoseScreenAnimation);
+        loseMenu.transform.DOScale(0, durationLoseScreenAnimation).SetEase(easeLoseScreenAnimation);
+        loseMenu.SetActive(false);
     }
     #endregion
 

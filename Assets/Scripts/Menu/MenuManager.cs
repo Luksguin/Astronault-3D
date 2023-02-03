@@ -7,24 +7,13 @@ public class MenuManager : MonoBehaviour
 {
     public List<GameObject> gameObjects;
 
-    [Header("DOTween")]
     public float duration;
     public float delay;
-    public Ease ease = Ease.OutBack;
+    public Ease ease;
 
     private void OnEnable()
     {
-        HideButtons();
         ShowButtonsWithDelay();
-    }
-
-    private void HideButtons()
-    {
-        foreach(var g in gameObjects)
-        {
-            g.transform.localScale = Vector3.zero;
-            g.SetActive(false);
-        }
     }
 
     private void ShowButtonsWithDelay()
@@ -33,7 +22,7 @@ public class MenuManager : MonoBehaviour
         {
             var g = gameObjects[i];
             g.SetActive(true);
-            g.transform.DOScale(1, duration).SetDelay(i * delay).SetEase(ease);
+            g.transform.DOScale(0, duration).SetDelay(i * delay).SetEase(ease).From();
         }
     }
 }
