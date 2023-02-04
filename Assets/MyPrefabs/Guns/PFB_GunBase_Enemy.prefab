@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectillePrefab: {fileID: 4909213898753135409, guid: 6a54412dc6a72754b9f303d746ba317f, type: 3}
   positionShoot: {fileID: 883531334065114683}
-  timeBetweenShoot: 2
+  timeBetweenShoot: 5

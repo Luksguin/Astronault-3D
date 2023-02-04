@@ -1,3 +1,6 @@
 {
-    "lastLevel": 2
+    "lifePlayer": 0.0,
+    "lastLevel": 2,
+    "coins": 14,
+    "medKits": 6
 }

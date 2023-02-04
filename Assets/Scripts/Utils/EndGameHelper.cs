@@ -6,6 +6,7 @@ using DG.Tweening;
 public class EndGameHelper : MonoBehaviour
 {
     public GameObject winMenu;
+    public int thisLevel;
     public float animationDuration;
     public Ease animationEase;
 
@@ -26,7 +27,7 @@ public class EndGameHelper : MonoBehaviour
 
     private void EndGame()
     {
-        SaveManager.instance.SaveLastLevel(2);
+        SaveManager.instance.SaveLastLevel(thisLevel);
         SaveManager.instance.Save();
 
         winMenu.SetActive(true);

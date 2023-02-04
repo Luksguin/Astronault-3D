@@ -79,20 +79,29 @@ public class SaveManager : Singleton<SaveManager>
     public void SaveLastLevel(int level)
     {
         _saveSetup.lastLevel = level;
-        SaveCollectables();
-        Save();
+        WriteCollectables();
+        WriteLife();
+        //Save();
     }
 
-    public void SaveCollectables()
+    public void WriteCollectables()
     {
         _saveSetup.coins = CollectableManager.instance.GetType(CollectableType.COIN).soInt.value;
         _saveSetup.medKits = CollectableManager.instance.GetType(CollectableType.MEDKIT).soInt.value;
+        Debug.Log("Collectables");
+    }
+
+    public void WriteLife()
+    {
+        _saveSetup.lifePlayer = HealthBase.instance.CurrentLife;
+        Debug.Log("Life");
     }
 }
 
 [System.Serializable]
 public class SaveSetup
 {
+    public float lifePlayer;
     public int lastLevel;
     public int coins;
     public int medKits;

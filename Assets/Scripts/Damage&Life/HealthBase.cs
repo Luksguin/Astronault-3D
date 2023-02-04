@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Ebac.Core.Singleton;
 
-public class HealthBase : MonoBehaviour, IDamageable
+public class HealthBase : Singleton<HealthBase>, IDamageable
 {
     public UIUpdater uiUpdater;
     public List<Collider> colliders;
@@ -22,7 +23,10 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     [SerializeField]private float _currentLife;
 
-    private void Awake()
+    //[Header("Save")]
+    //public bool isPlayer = false;
+
+    protected override void Awake()
     {
         Init();
     }
@@ -30,14 +34,14 @@ public class HealthBase : MonoBehaviour, IDamageable
     public void Init()
     {
         ResetLife();
+        SaveLife();
     }
 
     #region PLAYER
     public void ResetLife()
     {
         _currentLife = life;
-        if (uiUpdater != null)
-            uiUpdater.UpdateImage((float)_currentLife / life);
+        UiUpdate(_currentLife, life);
     }
 
     public void StartShield(float duration)
@@ -52,6 +56,24 @@ public class HealthBase : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(duration);
         _currentLife = normalLife;
     }
+
+    #region SAVE
+    public void SaveLife()
+    {
+        SaveManager.instance.Setup.lifePlayer = _currentLife;
+        Debug.Log(SaveManager.instance.Setup.lifePlayer);
+    }
+
+    public void ReadLife()
+    {
+        UiUpdate(SaveManager.instance.Setup.lifePlayer, life);
+    }
+
+    public float CurrentLife
+    {
+        get { return _currentLife; }
+    }
+    #endregion
     #endregion
 
     private void Kill()
@@ -67,7 +89,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     {
         _currentLife -= damage;
 
-        UiUpdate();
+        UiUpdate(_currentLife, life);
         onDamage?.Invoke(this);
 
         if (_currentLife <= 0)
@@ -76,10 +98,10 @@ public class HealthBase : MonoBehaviour, IDamageable
         }
     }
 
-    public void UiUpdate()
+    public void UiUpdate(float currLife, float life)
     {
         if (uiUpdater != null)
-            uiUpdater.UpdateImage((float)_currentLife / life);
+            uiUpdater.UpdateImage((float)currLife / life);
     }
 
     #region INTERFACE

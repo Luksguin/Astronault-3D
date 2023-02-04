@@ -21,13 +21,13 @@ namespace Collectable
             ReadCollectables();
         }
 
-        private void Reset()
-        {
-            foreach(var i in collectableSetups)
-            {
-                i.soInt.value = 0;
-            }
-        }
+        //private void Reset()
+        //{
+        //    foreach(var i in collectableSetups)
+        //    {
+        //        i.soInt.value = 0;
+        //    }
+        //}
 
         public void ReadCollectables()
         {
