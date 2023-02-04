@@ -18,7 +18,7 @@ namespace Collectable
 
         private void Start()
         {
-            Reset();
+            ReadCollectables();
         }
 
         private void Reset()
@@ -27,6 +27,12 @@ namespace Collectable
             {
                 i.soInt.value = 0;
             }
+        }
+
+        public void ReadCollectables()
+        {
+            AddByType(CollectableType.COIN, SaveManager.instance.Setup.coins);
+            AddByType(CollectableType.MEDKIT, SaveManager.instance.Setup.medKits);
         }
 
         public CollectableSetup GetType(CollectableType type)
@@ -46,33 +52,7 @@ namespace Collectable
 
             if (iten.soInt.value < 0) iten.soInt.value = 0;
         }
-
-        #region DEBUG
-        //[NaughtyAttributes.Button]
-        //public void AddCoin()
-        //{
-        //    AddByType(ItenType.COIN);
-        //}
-
-        //[NaughtyAttributes.Button]
-        //public void RemoveCoin()
-        //{
-        //    RemoveByType(ItenType.COIN);
-        //}
-
-        //[NaughtyAttributes.Button]
-        //public void AddMedkit()
-        //{
-        //    AddByType(ItenType.MEDKIT);
-        //}
-
-        //[NaughtyAttributes.Button]
-        //public void RemoveMedkit()
-        //{
-        //    RemoveByType(ItenType.MEDKIT);
-        //}
     }
-    #endregion
 
     [System.Serializable]
     public class CollectableSetup

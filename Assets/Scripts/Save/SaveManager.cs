@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,15 +8,38 @@ using Collectable;
 
 public class SaveManager : Singleton<SaveManager>
 {
-    private SaveSetup _saveSetup;
+    [SerializeField] private SaveSetup _saveSetup;
+    private string _path;
+
+    public int _myLastLevel;
+
+    public Action<SaveSetup> FileLoaded;
+
+    public SaveSetup Setup
+    {
+        get { return _saveSetup; }
+    }
 
     protected override void Awake()
     {
         base.Awake();
 
+        _path = Application.dataPath + "/Save.txt";
+
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        Invoke(nameof(ReadFile), .1f);
+    }
+
+    private void CreateFile()
+    {
         _saveSetup = new SaveSetup();
-        _saveSetup.lastLevel = 1;
+        _saveSetup.lastLevel = 0;
+        _saveSetup.coins = 0;
+        _saveSetup.medKits = 0;
     }
 
     [NaughtyAttributes.Button]
@@ -23,15 +47,33 @@ public class SaveManager : Singleton<SaveManager>
     {        
         string setupToJson = JsonUtility.ToJson(_saveSetup, true);
 
-        SaveFile(setupToJson);
+        WriteFile(setupToJson);
         Debug.Log(setupToJson);
     }
 
-    public void SaveFile(string json)
+    public void WriteFile(string json)
     {
-        string path = Application.dataPath + "/Save.txt";
+        File.WriteAllText(_path, json);
+    }
 
-        File.WriteAllText(path, json);
+    [NaughtyAttributes.Button]
+    public void ReadFile()
+    {
+        string loadedFile = "";
+
+        if (File.Exists(_path))
+        {
+            loadedFile = File.ReadAllText(_path);
+            _saveSetup = JsonUtility.FromJson<SaveSetup>(loadedFile);
+            _myLastLevel = _saveSetup.lastLevel;
+        }
+        else
+        {
+            CreateFile();
+            Save();
+        }
+
+        FileLoaded?.Invoke(_saveSetup);
     }
 
     public void SaveLastLevel(int level)
