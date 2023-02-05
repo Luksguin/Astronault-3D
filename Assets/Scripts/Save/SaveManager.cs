@@ -37,6 +37,7 @@ public class SaveManager : Singleton<SaveManager>
     private void CreateFile()
     {
         _saveSetup = new SaveSetup();
+        _saveSetup.lifePlayer = 10;
         _saveSetup.lastLevel = 0;
         _saveSetup.coins = 0;
         _saveSetup.medKits = 0;
@@ -56,7 +57,6 @@ public class SaveManager : Singleton<SaveManager>
         File.WriteAllText(_path, json);
     }
 
-    [NaughtyAttributes.Button]
     public void ReadFile()
     {
         string loadedFile = "";
@@ -81,24 +81,22 @@ public class SaveManager : Singleton<SaveManager>
         _saveSetup.lastLevel = level;
         WriteCollectables();
         WriteLife();
-        //Save();
+        Save();
     }
 
     public void WriteCollectables()
     {
         _saveSetup.coins = CollectableManager.instance.GetType(CollectableType.COIN).soInt.value;
         _saveSetup.medKits = CollectableManager.instance.GetType(CollectableType.MEDKIT).soInt.value;
-        Debug.Log("Collectables");
     }
 
     public void WriteLife()
     {
-        _saveSetup.lifePlayer = HealthBase.instance.CurrentLife;
-        Debug.Log("Life");
+        _saveSetup.lifePlayer = LifePlayerController.instance.lifePlayer;
     }
 }
 
-[System.Serializable]
+[Serializable]
 public class SaveSetup
 {
     public float lifePlayer;

@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using Ebac.Core.Singleton;
 
-public class HealthBase : Singleton<HealthBase>, IDamageable
+public class HealthBase : MonoBehaviour, IDamageable
 {
     public UIUpdater uiUpdater;
     public List<Collider> colliders;
@@ -23,10 +22,7 @@ public class HealthBase : Singleton<HealthBase>, IDamageable
 
     [SerializeField]private float _currentLife;
 
-    //[Header("Save")]
-    //public bool isPlayer = false;
-
-    protected override void Awake()
+    private void Awake()
     {
         Init();
     }
@@ -34,7 +30,8 @@ public class HealthBase : Singleton<HealthBase>, IDamageable
     public void Init()
     {
         ResetLife();
-        SaveLife();
+        ReadLife();
+        ReadLifeUI();
     }
 
     #region PLAYER
@@ -58,13 +55,12 @@ public class HealthBase : Singleton<HealthBase>, IDamageable
     }
 
     #region SAVE
-    public void SaveLife()
+    public void ReadLife()
     {
-        SaveManager.instance.Setup.lifePlayer = _currentLife;
-        Debug.Log(SaveManager.instance.Setup.lifePlayer);
+        _currentLife = SaveManager.instance.Setup.lifePlayer;
     }
 
-    public void ReadLife()
+    public void ReadLifeUI()
     {
         UiUpdate(SaveManager.instance.Setup.lifePlayer, life);
     }
