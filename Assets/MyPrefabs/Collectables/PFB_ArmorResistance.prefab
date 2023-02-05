@@ -63,8 +63,8 @@ MonoBehaviour:
   myCollider: {fileID: 790150945603104237}
   meshRenderer: {fileID: 790150946284371996}
   playerTag: Player
-  duration: 5
-  timeToDestroy: 0
+  duration: 20
+  _hasArmor: 0
   playerHealth: {fileID: 0}
 --- !u!1 &790150946284371994
 GameObject:

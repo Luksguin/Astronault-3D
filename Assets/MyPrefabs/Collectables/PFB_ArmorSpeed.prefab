@@ -144,5 +144,6 @@ MonoBehaviour:
   myCollider: {fileID: 6739184723662867691}
   meshRenderer: {fileID: 6739184722931261722}
   playerTag: Player
-  duration: 5
+  duration: 20
+  _hasArmor: 0
   newSpeed: 20
