@@ -12,27 +12,22 @@ namespace Armor
         public string playerTag;
         public float duration;
 
-        [SerializeField] private bool _hasArmor = false;
+        public ArmorType lastType;
 
         private void OnTriggerEnter(Collider collision)
         {
-            if (collision.transform.tag == playerTag && _hasArmor == false)
+            if (collision.transform.tag == playerTag)
             {
-                _hasArmor = true;
                 Collect();
-                Invoke(nameof(RemoveArmor), duration);
             }
-        }
-
-        public void RemoveArmor()
-        {
-            _hasArmor = false;
         }
 
         protected virtual void Collect()
         {
             var setup = ArmorManager.instance.GetByType(armorType);
             Player.instance.UpdateArmor(setup, duration);
+
+            lastType = setup.armorType;
 
             DestroyObject();
         }

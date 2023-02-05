@@ -52,6 +52,8 @@ public class Player : Singleton<Player>
 
         OnValidate();
 
+        ReadArmor();
+
         healthBase.onDamage += Damage;
         healthBase.onKill += KillPlayer;
     }
@@ -159,6 +161,11 @@ public class Player : Singleton<Player>
     #endregion 
 
     #region ARMOR
+    public void ReadArmor()
+    {
+        UpdateArmor(SaveManager.instance.Setup.armorSetup, 10f);
+    }
+
     public void UpdateArmor(ArmorSetup setup, float duration)
     {
         StartCoroutine(UpdateArmorCoroutine(setup, duration));

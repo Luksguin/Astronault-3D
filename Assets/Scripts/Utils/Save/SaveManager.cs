@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ebac.Core.Singleton;
 using Collectable;
+using Armor;
 
 public class SaveManager : Singleton<SaveManager>
 {
@@ -74,6 +75,7 @@ public class SaveManager : Singleton<SaveManager>
         _saveSetup.lastLevel = 0;
         _saveSetup.coins = 0;
         _saveSetup.medKits = 0;
+        _saveSetup.armorSetup = null;
     }
 
     public void SaveLastLevel(int level)
@@ -81,6 +83,7 @@ public class SaveManager : Singleton<SaveManager>
         _saveSetup.lastLevel = level;
         WriteCollectables();
         WriteLife();
+        WriteArmor();
         Save();
     }
 
@@ -94,6 +97,11 @@ public class SaveManager : Singleton<SaveManager>
     {
         _saveSetup.lifePlayer = LifePlayerController.instance.lifePlayer;
     }
+
+    public void WriteArmor()
+    {
+        _saveSetup.armorSetup = ArmorManager.instance.GetByType(ArmorBase.lastType);
+    }
 }
 
 [Serializable]
@@ -103,4 +111,5 @@ public class SaveSetup
     public int lastLevel;
     public int coins;
     public int medKits;
+    public ArmorSetup armorSetup;
 }
