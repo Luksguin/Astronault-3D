@@ -12,7 +12,7 @@ public class EndGameHelper : MonoBehaviour
 
     private void Awake()
     {
-        winMenu.SetActive(false);
+        if (winMenu != null) winMenu.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,9 +28,11 @@ public class EndGameHelper : MonoBehaviour
     private void EndGame()
     {
         SaveManager.instance.SaveLastLevel(thisLevel);
-        SaveManager.instance.Save();
 
-        winMenu.SetActive(true);
-        winMenu.transform.DOScale(0, animationDuration).SetEase(animationEase).From();
+        if (winMenu != null)
+        {
+            winMenu.SetActive(true);
+            winMenu.transform.DOScale(0, animationDuration).SetEase(animationEase).From();
+        }
     }
 }
