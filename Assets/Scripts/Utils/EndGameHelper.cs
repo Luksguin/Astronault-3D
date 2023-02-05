@@ -21,11 +21,11 @@ public class EndGameHelper : MonoBehaviour
 
         if (p)
         {
-            EndGame();
+            SaveGame();
         }
     }
 
-    private void EndGame()
+    private void SaveGame()
     {
         SaveManager.instance.SaveLastLevel(thisLevel);
 
