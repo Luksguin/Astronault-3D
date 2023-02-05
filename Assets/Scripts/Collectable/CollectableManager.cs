@@ -31,8 +31,8 @@ namespace Collectable
 
         public void ReadCollectables()
         {
-            AddByType(CollectableType.COIN, SaveManager.instance.Setup.coins);
-            AddByType(CollectableType.MEDKIT, SaveManager.instance.Setup.medKits);
+            GetType(CollectableType.COIN).soInt.value = SaveManager.instance.Setup.coins;
+            GetType(CollectableType.MEDKIT).soInt.value = SaveManager.instance.Setup.medKits;
         }
 
         public CollectableSetup GetType(CollectableType type)
