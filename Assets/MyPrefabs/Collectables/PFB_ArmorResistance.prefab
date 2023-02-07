@@ -64,7 +64,6 @@ MonoBehaviour:
   meshRenderer: {fileID: 790150946284371996}
   playerTag: Player
   duration: 20
-  _hasArmor: 0
   playerHealth: {fileID: 0}
 --- !u!1 &790150946284371994
 GameObject:

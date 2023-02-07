@@ -150,14 +150,6 @@ public class Player : Singleton<Player>
             }
         }
     }
-
-    void Update()
-    {
-        if (characterController.enabled == false) return;
-
-        Run();
-        Jump();
-    }
     #endregion 
 
     #region ARMOR
@@ -200,5 +192,13 @@ public class Player : Singleton<Player>
         {
             transform.position = CheckPointManager.instance.GetPosition();
         }
+    }
+
+    void Update()
+    {
+        if (characterController.enabled == false) return;
+
+        Run();
+        Jump();
     }
 }

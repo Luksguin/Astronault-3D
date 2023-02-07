@@ -1,12 +1,15 @@
 {
     "lifePlayer": 100.0,
-    "lastLevel": 1,
+    "lastLevel": 2,
     "coins": 19,
     "medKits": 4,
     "armorSetup": {
         "armorType": 1,
+        "lastType": {
+            "instanceID": 0
+        },
         "texture": {
-            "instanceID": 21608
+            "instanceID": 21620
         }
     }
 }

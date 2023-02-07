@@ -145,5 +145,4 @@ MonoBehaviour:
   meshRenderer: {fileID: 6739184722931261722}
   playerTag: Player
   duration: 20
-  _hasArmor: 0
   newSpeed: 20

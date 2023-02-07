@@ -12,7 +12,7 @@ namespace Armor
         public string playerTag;
         public float duration;
 
-        public ArmorType lastType;
+        public static ArmorType lastType;
 
         private void OnTriggerEnter(Collider collision)
         {
