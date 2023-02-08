@@ -366,7 +366,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133043989}
-  m_LocalRotation: {x: 0.11898625, y: -0.71659166, z: 0.12620918, w: 0.67558116}
+  m_LocalRotation: {x: 0.11898625, y: -0.71659166, z: 0.12620915, w: 0.6755812}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5531,7 +5531,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500100153}
-  m_LocalRotation: {x: 0.10030158, y: -0.719801, z: 0.10639029, w: 0.67860687}
+  m_LocalRotation: {x: 0.10030157, y: -0.719801, z: 0.10639028, w: 0.67860687}
   m_LocalPosition: {x: 303.97052, y: 4.236047, z: 516.2993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10160,7 +10160,7 @@ PrefabInstance:
     - target: {fileID: 790150945603104234, guid: 6604a53c27c0faa408eba819c0d34238, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 894289955}
     - target: {fileID: 790150945603104235, guid: 6604a53c27c0faa408eba819c0d34238, type: 3}
       propertyPath: m_Name
       value: PFB_ArmorResistance
