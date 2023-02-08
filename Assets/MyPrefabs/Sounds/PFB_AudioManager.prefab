@@ -50,10 +50,5 @@ MonoBehaviour:
     musicClip: {fileID: 8300000, guid: d8f7a78a964aa489aafb3749d805cd4b, type: 3}
   - musicType: 2
     musicClip: {fileID: 8300000, guid: 956ad2f73332544fd87365087825cc4f, type: 3}
-  sfxSetups:
-  - sfxType: 0
-    sfxClip: {fileID: 8300000, guid: 32d4b1811dda14a6cb9e059ee8ad17d2, type: 3}
-  - sfxType: 1
-    sfxClip: {fileID: 8300000, guid: dc6614beca09347ec9b258f12d154bdd, type: 3}
-  - sfxType: 2
-    sfxClip: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
+  onOffButton: 109
+  audios: {fileID: 0}

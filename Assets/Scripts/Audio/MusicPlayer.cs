@@ -18,6 +18,6 @@ public class MusicPlayer : MonoBehaviour
     {
         _currentAudio = AudioManager.instance.GetMusicByType(musicType);
         audioSource.clip = _currentAudio.musicClip;
-        audioSource.Play();
+        if(audioSource != null) audioSource.Play();
     }
 }

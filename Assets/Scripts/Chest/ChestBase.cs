@@ -39,9 +39,7 @@ public class ChestBase : MonoBehaviour
         if (_showIcon == true)
         {
             _isOpen = true;
-
-            audioOpen.Play();
-
+            if(audioOpen != null) audioOpen.Play();
             animator.SetTrigger(openTrigger);
             ShowItem();
             HideIcon();

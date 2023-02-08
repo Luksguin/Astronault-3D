@@ -7739,6 +7739,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9215825035147812529, guid: c1b87a8139bb6504c9cb06bb72ed6294, type: 3}
+      propertyPath: audios
+      value: 
+      objectReference: {fileID: 180500409}
     - target: {fileID: 9215825035147812531, guid: c1b87a8139bb6504c9cb06bb72ed6294, type: 3}
       propertyPath: m_Name
       value: PFB_AudioManager

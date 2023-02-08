@@ -105,14 +105,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   healthBase: {fileID: 6108808190890119075}
-  loseMenu: {fileID: 1502878339581534458, guid: 82dc4853f952e8a44af684ed0490511c, type: 3}
+  loseMenu: {fileID: 0}
   timeToRevive: 3
   durationLoseScreenAnimation: 0.1
   easeLoseScreenAnimation: 1
   armorPlayer: {fileID: 6108808190890119074}
-  deathAudio: {fileID: 2348480214706257026, guid: 440b423d7dd18e542ad3b37e952ca08c, type: 3}
+  deathAudio: {fileID: 0}
 --- !u!114 &6108808190890119077
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -84,7 +84,7 @@ namespace Boss
         public void WalkActions()
         {
             PlayAnimationByTrigger(AnimationType.RUN);
-            audioWalkBoss.Play();
+            if(audioWalkBoss != null) audioWalkBoss.Play();
         }
 
         IEnumerator RandomWalkCoroutine(Transform t, Action onArrive = null)

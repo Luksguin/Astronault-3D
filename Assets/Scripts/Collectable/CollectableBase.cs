@@ -25,7 +25,7 @@ namespace Collectable
         
         [Header("Others")]
         public ParticleSystem systemParticle;
-        public AudioSource audioClip;
+        //public AudioSource audioClip;
 
         private void Awake()
         {
@@ -48,7 +48,7 @@ namespace Collectable
         protected virtual void OnCollect()
         {
             if (systemParticle != null) systemParticle.Play();
-            if (audioClip != null) audioClip.Play();
+            //if (audioClip != null) audioClip.Play();
             if(animator != null) animator.SetTrigger(setTrigger);
             StartCoroutine(ShowMessage());
             CollectableManager.instance.AddByType(itenType);
