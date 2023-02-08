@@ -7469,6 +7469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaveManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7458834625913933662, guid: b74a82b709d56ca4398093554b194d80, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7458834625913933663, guid: b74a82b709d56ca4398093554b194d80, type: 3}
       propertyPath: m_RootOrder
       value: 6

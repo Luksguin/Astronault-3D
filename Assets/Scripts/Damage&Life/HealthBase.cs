@@ -58,6 +58,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     public void ReadLife()
     {
         _currentLife = SaveManager.instance.Setup.lifePlayer;
+        if (_currentLife >= life) _currentLife = life;
     }
 
     public void ReadLifeUI()
