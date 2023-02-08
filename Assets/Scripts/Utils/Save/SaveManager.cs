@@ -75,7 +75,7 @@ public class SaveManager : Singleton<SaveManager>
         _saveSetup.lastLevel = 0;
         _saveSetup.coins = 0;
         _saveSetup.medKits = 0;
-        _saveSetup.armorSetup = null;
+        _saveSetup.armorSetup = ArmorManager.instance.GetByType(ArmorType.DEFAULT);
     }
 
     public void SaveLastLevel(int level)

@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd9265e55c47dd499b17a8d46cb7018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armorType: 0
+  armorType: 1
   myCollider: {fileID: 6739184723662867691}
   meshRenderer: {fileID: 6739184722931261722}
   playerTag: Player

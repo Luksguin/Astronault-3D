@@ -7,6 +7,7 @@ namespace Armor
 {
     public enum ArmorType
     {
+        DEFAULT,
         SPEED,
         RESISTANCE,
         COSMESTIC
@@ -14,6 +15,7 @@ namespace Armor
 
     public class ArmorManager : Singleton<ArmorManager>
     {
+        //public ArmorSetup armorDefault;
         public List<ArmorSetup> armorSetups;
 
         public ArmorSetup GetByType(ArmorType type)
