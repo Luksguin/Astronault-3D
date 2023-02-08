@@ -8,7 +8,7 @@ public class AudioManager : Singleton<AudioManager>
     public List<MusicSetup> musicSetups;
     public List<SFXSetup> sfxSetups;
 
-    public AudioSource musicSource;
+    //public AudioSource musicSource;
 
     //public void PlayMusic(MusicType type)
     //{

@@ -39,6 +39,9 @@ public class Player : Singleton<Player>
     [Header("Armor")]
     public ArmorPlayer armorPlayer;
 
+    [Header("Sounds")]
+    public AudioSource deathAudio;
+
     private void OnValidate()
     {
         if (healthBase == null) healthBase = GetComponent<HealthBase>();
@@ -61,7 +64,7 @@ public class Player : Singleton<Player>
     public void KillPlayer(HealthBase h)
     {
         playerAnimator.SetTrigger(deathTrigger);
-
+        if(deathAudio != null) deathAudio.Play();
         Invoke(nameof(ShowMenu), timeToRevive);
     }
 
