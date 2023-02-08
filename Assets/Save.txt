@@ -1,6 +1,6 @@
 {
-    "lifePlayer": 10.0,
-    "lastLevel": 1,
+    "lifePlayer": 0.0,
+    "lastLevel": 2,
     "coins": 20,
     "medKits": 4,
     "armorSetup": {

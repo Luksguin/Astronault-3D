@@ -8,15 +8,6 @@ public class AudioManager : Singleton<AudioManager>
     public List<MusicSetup> musicSetups;
     public List<SFXSetup> sfxSetups;
 
-    //public AudioSource musicSource;
-
-    //public void PlayMusic(MusicType type)
-    //{
-    //    var music = GetMusicByType(type);
-    //    musicSource.clip = music.musicClip;
-    //    musicSource.Play();
-    //}
-
     public MusicSetup GetMusicByType(MusicType type)
     {
         return musicSetups.Find(i => i.musicType == type);
@@ -30,9 +21,10 @@ public class AudioManager : Singleton<AudioManager>
 
 public enum MusicType
 {
-    TYPE_01,
-    TYPE_02,
-    TYPE_03
+    MENU,
+    LEVEL_01,
+    LEVEL_02,
+    LEVEL_03
 }
 
 [System.Serializable]
