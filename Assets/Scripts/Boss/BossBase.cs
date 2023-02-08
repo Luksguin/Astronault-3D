@@ -27,6 +27,7 @@ namespace Boss
         public Ease startAnimationEase;
 
         [Header("Walk")]
+        public AudioSource audioWalkBoss;
         public List<Transform> wayPositions;
         public float minDistance;
         public float speed;
@@ -80,9 +81,10 @@ namespace Boss
             StartCoroutine(RandomWalkCoroutine(wayPositions[UnityEngine.Random.Range(0, wayPositions.Count)], onArrive));
         }
 
-        public void WalkAnimation()
+        public void WalkActions()
         {
             PlayAnimationByTrigger(AnimationType.RUN);
+            audioWalkBoss.Play();
         }
 
         IEnumerator RandomWalkCoroutine(Transform t, Action onArrive = null)

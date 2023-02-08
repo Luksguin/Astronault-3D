@@ -44,7 +44,7 @@ namespace Boss
             base.OnStateEnter(objs);
             if (boss == null) return;
             boss.RandomWalk(OnArrive);
-            boss.WalkAnimation();
+            boss.WalkActions();
         }
 
         public void OnArrive()
