@@ -6,8 +6,9 @@ using DG.Tweening;
 public class ChestBase : MonoBehaviour
 {
     public ChestItemBase item;
-    public Animator animator;
     public GameObject icon;
+    public Animator animator;
+    public AudioSource audioOpen;
     public KeyCode openChest;
     public string playerTag;
     public string openTrigger;
@@ -38,8 +39,10 @@ public class ChestBase : MonoBehaviour
         if (_showIcon == true)
         {
             _isOpen = true;
+
+            audioOpen.Play();
+
             animator.SetTrigger(openTrigger);
-            //Invoke(nameof(ShowItem), 1f);
             ShowItem();
             HideIcon();
         }

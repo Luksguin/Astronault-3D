@@ -48,8 +48,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
-  m_Center: {x: 0, y: 0, z: 1.15}
+  m_Radius: 2.9
+  m_Center: {x: 0, y: 0, z: 1.52}
 --- !u!95 &638719455
 Animator:
   serializedVersion: 3
@@ -82,8 +82,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 5728877551685658135}
-  animator: {fileID: 638719455}
   icon: {fileID: 8166859789002934539}
+  animator: {fileID: 638719455}
+  audioOpen: {fileID: 0}
   openChest: 122
   playerTag: Player
   openTrigger: Open
@@ -295,11 +296,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1db6f27b7e2bd4bbef0e4bd11c93a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: {fileID: 0}
+  coin: {fileID: 1754508459713097574, guid: fa2d1654b0b15dd48b93e720d462e55e, type: 3}
   coinAmount: 3
-  randomPosition: {x: 0, y: 0}
-  startAnimationDuration: 0
-  startAnimationEase: 0
+  randomPosition: {x: -0.5, y: 0.5}
+  startAnimationDuration: 0.3
+  startAnimationEase: 27
 --- !u!1 &6776931282549636460
 GameObject:
   m_ObjectHideFlags: 0
